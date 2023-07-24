@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { FaMicrophoneAlt, FaComments, FaWhatsapp, FaTiktok, FaCameraRetro, FaMusic } from 'react-icons/fa';
 import { BsDisc } from 'react-icons/bs';
 import { TfiVideoClapper } from 'react-icons/tfi';
-import eliad from './homepage.PNG';
+import eliad from './homepage.png';
 import design from './design.svg';
 import Contact from './Contact';
 import Slideshow from './Slideshow';

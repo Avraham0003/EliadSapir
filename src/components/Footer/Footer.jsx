@@ -1,6 +1,6 @@
 import { Box, Text, Image } from '@chakra-ui/react'
 import React from 'react';
-import logo from '../Header/logo.PNG';
+import logo from '../Header/logo.png';
 
 
 function Footer() {

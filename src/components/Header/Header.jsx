@@ -13,7 +13,7 @@ import {
   import { HiMenuAlt3 as Menu, HiHome, HiOutlineAnnotation  } from "react-icons/hi";
   import React from 'react'
 
-  import logo from './Logo.PNG'
+  import logo from './Logo.png'
   function Header() {
     const menu_button_style = {
       cursor: 'pointer',
