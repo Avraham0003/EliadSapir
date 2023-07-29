@@ -12,9 +12,15 @@ import {
   } from '@chakra-ui/react'
   import { HiMenuAlt3 as Menu, HiHome, HiOutlineAnnotation  } from "react-icons/hi";
   import React from 'react'
-  import logo from '../../assets/mainEliadLogo.png'
+  import logo from '../../assets/mainEliadLogo.png';
+  import EliadAudio from '../../assets/EliadAudio.mp3';
 
 function Header() {
+
+  const playAudio = ()=> {
+    new Audio(EliadAudio).play();
+  }
+
     const menu_button_style = {
       cursor: 'pointer',
       float: 'right',
@@ -45,7 +51,7 @@ function Header() {
         <Box sx={header_style}>
           <Flex align="center" justify="space-between" >
             <Box>
-               <Image src={logo} alt='logo' width={['150px','200px','250px']} cursor={'pointer'} onClick={()=> window.location = '/'}/>
+               <Image src={logo} alt='logo' width={['150px','200px','250px']} cursor={'pointer'} onClick={()=> playAudio()}/>
              </Box>
             <Box onClick={onOpen} sx={menu_button_style} ><Menu /></Box>
           </Flex>
