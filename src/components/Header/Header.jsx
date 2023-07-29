@@ -30,7 +30,7 @@ import {
     }
     const header_style = {
       py: 5,
-      px: [5,100],
+      px: [5,10,50],
       position: 'absolute',// Can be remove
       top: 0,
       left: 0,

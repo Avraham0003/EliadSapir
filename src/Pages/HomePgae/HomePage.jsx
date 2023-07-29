@@ -1,18 +1,23 @@
-import { Text, Center, Box, Image, Flex, Stack, GridItem, Card, CardHeader, CardBody, Button, IconButton, Grid } from '@chakra-ui/react'
+import { Text, Box, Image, Flex, Button, IconButton, Spacer} from '@chakra-ui/react'
 import React, { useState } from 'react';
-import { FaMicrophoneAlt, FaComments, FaWhatsapp, FaTiktok, FaCameraRetro, FaMusic } from 'react-icons/fa';
-import { BsDisc } from 'react-icons/bs';
-import { TfiVideoClapper } from 'react-icons/tfi';
-import eliad from './homepage.png';
-import design from './design.svg';
+import { FaComments, FaWhatsapp } from 'react-icons/fa';
+import eliad from './Eliad2.png';
 import Contact from './Contact';
-import Slideshow from './Slideshow';
+import Slideshow from '../../components/Slideshow/Slideshow';
 import Footer from '../../components/Footer/Footer';
-
+import Show from '../../components/Show/Show';
 function HomePage() {
 
   const heading = {
     fontSize: ['50px', '70px', '90px'],
+    bgGradient: 'linear(to-l, blue.400, teal.400)',
+    color: 'white',
+    fontWeight: 'bold',
+    bgClip: 'text',
+    letterSpacing: ['2px','8px'],
+  }
+  const heading1 = {
+    fontSize: ['40px', '50px', '80px'],
     bgGradient: 'linear(to-l, blue.400, teal.400)',
     color: 'white',
     fontWeight: 'bold',
@@ -34,102 +39,37 @@ function HomePage() {
   return (
     <>
       <Flex align="center" 
-      justify="space-between" 
       height={'100vh'} 
+      width={'100%'}
       bgGradient='linear(to-l,  #0b0708,#10171f)' 
-      paddingY={[0, 300, 400]} 
-      paddingX={[5, 20, 30, 40]}
+      padding={0}
       >
-        <Box>
+        
+        <Box paddingRight={[2,10]} marginBottom={[300,0]} zIndex={1}>
           <Text sx={heading}>
             אליעד ספיר
           </Text>
-          <Text fontSize={['40px', '70px', '90px']} color={'white'} as={'p'}>
+          <Text fontSize={['30px', '50px', '70px']} letterSpacing={'-1px'} color={'white'} as={'p'}>
             הבית לאמנים גדולים
           </Text>
-          <Text width={'100%'} color={'white'} marginY={10} fontSize={['10px', '20px', '30px']}>
+          <Text width={'100%'} color={'white'} marginY={10} fontSize={['13px', '20px', '30px']}>
             אולפן הקלטות והפקות לאמנים, אירועים, עסקים ולכל דרישה.
             <br />
              ציוד צילום, הקלטה והפקה ברמה הכי גבוהה שיש.
           </Text>
-          <Button fontSize={'xl'}>צור קשר &nbsp;<FaComments /></Button>
+          <Button fontSize={'xl'} opacity={0.8}>צור קשר &nbsp;<FaComments /></Button>
         </Box>
-        <Image src={eliad} alt='eliad sapir photo' width={['70%', '50%', '30%']} position={['absolute', 'relative']} />
+        <Spacer/>
+        <Image src={eliad} alt='eliad sapir photo' width={['100%', '50%', '30%']} marginTop={200} position={['absolute','absolute', 'relative']} zIndex={0} />
       </Flex>
 
-      <Box py={[10,100]} height={'150vh'} width={'100%'}
-        bgImage={design}
-        bgPosition="left"
-        bgRepeat="no-repeat"
-        bgSize={'70%'}
-      >
-        <Box>
-          <Text sx={heading} textAlign={'center'}>
+        <Box height={'200vh'} bgGradient='linear(to-l,  #0b0708,#10171f)' >
+          <Text sx={heading1} textAlign={'right'} py={10}>
             מה האולפן מציע?
           </Text>
+        <Show/>
         </Box>
-        <Grid 
-        templateRows={['repeat(3, 1fr)','repeat(2, 1fr)']}
-        templateColumns={['repeat(2, 1fr)','repeat(4, 1fr)']}
-        gap={[1,10]} 
-        px={['5px','10%']}>
-          <Card sx={card_style}>
-            <CardHeader>
-              <Center fontSize={'40px'}><BsDisc /></Center>
-            </CardHeader>
-            <CardBody>
-              <Text sx={card_head_style}>הפקת שיר מקורי</Text>
-            </CardBody>
-          </Card>
-          
-          <Card sx={card_style}>
-            <CardHeader>
-              <Center fontSize={'40px'}><TfiVideoClapper /></Center>
-            </CardHeader>
-            <CardBody>
-              <Text sx={card_head_style}>הפקת סרטוני תדמית</Text>
-            </CardBody>
-          </Card>
-
-          <Card sx={card_style}>
-            <CardHeader>
-              <Center fontSize={'40px'}><FaMicrophoneAlt /></Center>
-            </CardHeader>
-            <CardBody>
-              <Text sx={card_head_style}>הקלטות לאירועים</Text>
-            </CardBody>
-          </Card>
-
-          <Card sx={card_style}>
-            <CardHeader>
-              <Center fontSize={'40px'}><FaTiktok /></Center>
-            </CardHeader>
-            <CardBody>
-              <Text sx={card_head_style}>פיתוח ברשתות חברתיות</Text>
-            </CardBody>
-          </Card>
-
-          <Card sx={card_style}>
-            <CardHeader>
-            <Center fontSize={'40px'}><FaCameraRetro /></Center>
-            </CardHeader>
-            <CardBody>
-              <Text sx={card_head_style}>צילום ועריכה לכל מטרה</Text>
-            </CardBody>
-          </Card>
-
-          <Card sx={card_style}>
-            <CardHeader>
-            <Center fontSize={'40px'}><FaMusic /></Center>
-            </CardHeader>
-            <CardBody>
-              <Text sx={card_head_style}>שירות מכירת ביטים ייחודי</Text>
-            </CardBody>
-          </Card>
-
-
-
-        </Grid>
+        
 
 
         <Text sx={heading} textAlign={'center'}>
@@ -142,7 +82,6 @@ function HomePage() {
         </Text>
         <Contact/>
       <Footer/>
-      </Box>
 
       <IconButton colorScheme='green' position={'fixed'} bottom={10} right={10} fontSize={'35px'} width={'50px'} height={'50px'} isRound={true} icon={<FaWhatsapp />} onClick={() => { window.location.href = 'https://api.whatsapp.com/send?phone=972526550676'; }} />
       
