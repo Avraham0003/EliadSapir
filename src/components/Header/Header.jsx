@@ -13,8 +13,8 @@ import {
   import { HiMenuAlt3 as Menu, HiHome, HiOutlineAnnotation  } from "react-icons/hi";
   import React from 'react'
 
-  import logo from '../../assets/logo.png'
-  function Header() {
+/*   import logo from '../../assets/logo.png'
+ */  function Header() {
     const menu_button_style = {
       cursor: 'pointer',
       float: 'right',
@@ -45,8 +45,8 @@ import {
         <Box sx={header_style}>
           <Flex align="center" justify="space-between" >
             <Box>
-              <Image src={logo} alt='logo' width={['150px','200px','250px']} cursor={'pointer'} onClick={()=> window.location = '/'}/>
-            </Box>
+              {/* <Image src={logo} alt='logo' width={['150px','200px','250px']} cursor={'pointer'} onClick={()=> window.location = '/'}/>
+             */}</Box>
             <Box onClick={onOpen} sx={menu_button_style} ><Menu /></Box>
           </Flex>
         </Box>
