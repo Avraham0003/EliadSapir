@@ -38,12 +38,12 @@ function Show() {
           <Text sx={text_style}>הקלטות שירים</Text>
         </Box>
         <Box position="relative">
-          <Image sx={image_style} src={img2} />
-          <Text sx={text_style}>מיקס ומאסטרינג</Text>
-        </Box>
-        <Box position="relative">
           <Image sx={image_style} src={img3} />
           <Text sx={text_style}>Your Text Here</Text>
+        </Box>
+        <Box position="relative">
+          <Image sx={image_style} src={img2} />
+          <Text sx={text_style}>מיקס ומאסטרינג</Text>
         </Box>
         <Box position="relative">
           <Image sx={image_style} src={img4} />
