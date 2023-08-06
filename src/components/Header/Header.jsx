@@ -26,12 +26,12 @@ function Header() {
       float: 'right',
       fontSize: '40px',
       color: 'white',
-      transition: "all 0.2s",
+      transition: 'all 0.2s',
       borderRadius: '10%',
       _hover:{
-        background: "rgba(0,0,0,0.5)",
-        color: "white",
-        transition: "all 0.2s"
+        color: '#0D74FF',
+        fontSize: '45px',
+        transition: 'all 0.2s'
       }
     }
     const header_style = {
@@ -64,10 +64,10 @@ function Header() {
         >
           <DrawerOverlay />
           <DrawerContent width={'40%'} >
-            <DrawerHeader borderBottomWidth='1px' fontSize={'xl'} color={'black'} padding={5}>
+            <DrawerHeader borderBottomWidth='1px' fontSize={'2xl'} color={'#0D74FF'} padding={5}>
                 EliadSapir
             </DrawerHeader>
-            <DrawerCloseButton fontSize={'xl'} color={'black'} marginY={3} />
+            <DrawerCloseButton fontSize={'xl'} transition={'all 0.2s'} _hover={{fontSize: '2xl', color: '#0D74FF'}} color={'black'} marginY={3} />
             <DrawerBody>
               
             </DrawerBody>

@@ -6,7 +6,7 @@ import logo from '../../assets/mainEliadLogo.png';
 function Footer() {
   return (
         <>
-        <Box width={'100%'} bg={'rgba(0,0,0,0.5)'} display={'block'} padding={10}>
+        <Box width={'100%'} bgGradient='linear(to-l,  #0b0708,#10171f)' display={'block'} padding={10}>
             <Image src={logo} alt='logo' width={['150px','200px','250px']}/>
             <Text float={'left'} color={'white'}>2023 - כל הזכויות שמורות ©</Text>
         </Box>

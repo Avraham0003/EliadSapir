@@ -12,8 +12,8 @@ import {
     FormLabel,
     Input,
     InputGroup,
-    InputLeftElement,
-    Textarea,
+    InputRightElement,
+    Select
   } from '@chakra-ui/react';
   import {
     MdPhone,
@@ -41,8 +41,9 @@ import {
                             height="48px"
                             width="250px"
                             variant="ghost"
+                            color="white"
                             _hover={{ border: '2px solid #1C6FEB' }}
-                            leftIcon={<MdPhone color="#1970F1" size="20px" />}>
+                            leftIcon={<MdPhone color="#1C6FEB" size="20px" />}>
                             055-26550676
                           </Button>
                           <Button
@@ -50,8 +51,9 @@ import {
                             height="48px"
                             width="250px"
                             variant="ghost"
+                            color="white"
                             _hover={{ border: '2px solid #1C6FEB' }}
-                            leftIcon={<MdEmail color="#1970F1" size="20px" />}>
+                            leftIcon={<MdEmail color="#1C6FEB" size="20px" />}>
                             eliadsapir18@gmail.com
                           </Button>
                           <Button
@@ -59,6 +61,7 @@ import {
                             height="48px"
                             width="250px"
                             variant="ghost"
+                            color="white"
                             _hover={{ border: '2px solid #1C6FEB' }}
                             leftIcon={<MdLocationOn color="#1970F1" size="20px" />}>
                             הרצל 12, אשקלון
@@ -74,22 +77,25 @@ import {
                           aria-label="facebook"
                           variant="ghost"
                           size="lg"
+                          color="white"
                           isRound={true}
-                          _hover={{ bg: '#0D74FF', color: 'white' }}
+                          _hover={{ bg: '#0D74FF' }}
                           icon={<MdFacebook size="28px" />}
                         />
                         <IconButton
                           aria-label="github"
                           variant="ghost"
                           size="lg"
+                          color="white"
                           isRound={true}
-                          _hover={{ bg: '#0D74FF', color: 'white' }}
+                          _hover={{ bg: '#0D74FF'}}
                           icon={<FaTiktok size="28px" />}
                         />
                         <IconButton
                           aria-label="instagram"
                           variant="ghost"
                           size="lg"
+                          color="white"
                           isRound={true}
                           _hover={{ bg: '#0D74FF', color: 'white' }}
                           icon={<FaInstagram size="28px" />}
@@ -98,41 +104,40 @@ import {
                     </Box>
                   </WrapItem>
                   <WrapItem>
-                    <Box bg="white" borderRadius="lg">
-                      <Box m={8} color="#0B0E3F">
+                    <Box borderRadius="lg">
+                      <Box m={8} color="white">
                         <VStack spacing={5}>
                           <FormControl id="name">
                             <FormLabel>שם מלא:</FormLabel>
                             <InputGroup borderColor="#E0E1E7">
-                              <InputLeftElement
+                              <InputRightElement
                                 pointerEvents="none"
                                 children={<BsPerson color="gray.800" />}
                               />
-                              <Input type="text" size="md" />
+                              <Input type="text" size="md" paddingRight={8} paddingLeft={0}/>
                             </InputGroup>
                           </FormControl>
                           <FormControl id="name">
                             <FormLabel>מס' טלפון:</FormLabel>
                             <InputGroup borderColor="#E0E1E7">
-                              <InputLeftElement
+                              <InputRightElement
                                 pointerEvents="none"
                                 children={<MdOutlinePhone color="gray.800" />}
                               />
-                              <Input type="text" size="md" />
+                              <Input type="phone" size="md" paddingRight={8} paddingLeft={0} />
                             </InputGroup>
                           </FormControl>
-                          <FormControl id="name">
-                            <FormLabel>הודעה:</FormLabel>
-                            <Textarea
-                              borderColor="gray.300"
-                              _hover={{
-                                borderRadius: 'gray.300',
-                              }}
-                              placeholder="message"
-                            />
+                          <FormControl id="category">
+                            <FormLabel>תחום הפנייה:</FormLabel>
+                            <Select dir="ltr" size="md" variant='outline'>
+                              <option value="1">אמנים</option>
+                              <option value="2">אירועים</option>
+                              <option value="3">עסקים</option>
+                              <option value="4">אחר</option>
+=                           </Select>
                           </FormControl>
-                          <FormControl id="name" float="right">
-                            <Button colorScheme='blue'>שלח הודעה</Button>
+                          <FormControl id="sent" float="right">
+                            <Button bg={'#0D74FF'} color={'white'} _hover={{color: 'black', bg: 'white'}}>שלח פנייה</Button>
                           </FormControl>
                         </VStack>
                       </Box>
