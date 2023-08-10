@@ -1,7 +1,7 @@
 import { Text, Box, Image, Flex, Button, IconButton, Spacer} from '@chakra-ui/react'
 import React, { useState } from 'react';
 import { FaComments, FaWhatsapp, FaAngleDown } from 'react-icons/fa';
-import eliad from './Eliad2.png';
+import eliad from './MainEliad.png';
 import Contact from './Contact';
 import Swiper from '../../components/Swiper/Swiper';
 import Footer from '../../components/Footer/Footer';
