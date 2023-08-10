@@ -34,7 +34,7 @@ import {
                 <Wrap spacing={{ base: 20, sm: 3, md: 5, lg: 20 }}>
                   <WrapItem>
                     <Box>
-                      <Box py={{ base: 5, sm: 5, md: 8, lg: 10 }}>
+                      <Box py={{ base: 2, sm: 5, md: 8, lg: 10 }}>
                         <VStack pl={0} spacing={4} alignItems="flex-start">
                           <Button
                             size="md"
@@ -105,7 +105,7 @@ import {
                   </WrapItem>
                   <WrapItem>
                     <Box borderRadius="lg">
-                      <Box m={8} color="white">
+                      <Box m={0} color="white">
                         <VStack spacing={5}>
                           <FormControl id="name">
                             <FormLabel>שם מלא:</FormLabel>
@@ -129,7 +129,7 @@ import {
                           </FormControl>
                           <FormControl id="category">
                             <FormLabel>תחום הפנייה:</FormLabel>
-                            <Select dir="ltr" size="md" variant='outline'>
+                            <Select dir="ltr" size="md" variant='outline' color={'white'}>
                               <option value="1">אמנים</option>
                               <option value="2">אירועים</option>
                               <option value="3">עסקים</option>

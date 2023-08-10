@@ -1,24 +1,23 @@
 import { Text, Box, Image, Flex, Button, IconButton, Spacer} from '@chakra-ui/react'
 import React, { useState } from 'react';
-import { FaComments, FaWhatsapp } from 'react-icons/fa';
+import { FaComments, FaWhatsapp, FaAngleDown } from 'react-icons/fa';
 import eliad from './Eliad2.png';
 import Contact from './Contact';
-import Slideshow from '../../components/Slideshow/Slideshow';
+import Swiper from '../../components/Swiper/Swiper';
 import Footer from '../../components/Footer/Footer';
 import Show from '../../components/Show/Show';
+
 function HomePage() {
 
   const heading = {
     fontSize: ['50px', '70px', '90px'],
     color: '#0D74FF',
     fontWeight: 'bold',
-    letterSpacing: ['2px','8px'],
   }
   const heading1 = {
     fontSize: ['40px', '50px', '80px'],
     color: '#0D74FF',
     fontWeight: 'bold',
-    letterSpacing: ['2px','8px'],
   }
 
   const card_style = {
@@ -62,14 +61,14 @@ function HomePage() {
             <br />
              ציוד צילום, הקלטה והפקה ברמה הכי גבוהה שיש.
           </Text>
-          <Button fontSize={'xl'} opacity={0.8} onClick={()=>{ handleClickScroll()}}>צור קשר &nbsp;<FaComments /></Button>
+          <Button fontSize={'xl'} opacity={0.6} onClick={()=>{ handleClickScroll()}} variant='outline' color={'white'}>צור קשר &nbsp;<FaComments /></Button>
         </Box>
         <Spacer/>
         <Image src={eliad} alt='eliad sapir photo' width={['100%', '50%', '30%']} marginTop={200} position={['absolute','absolute', 'relative']} zIndex={0} />
       </Flex>
 
-        <Box paddingY={100} bgGradient='linear(to-l,  #0b0708,#10171f)' >
-          <Text sx={heading1} textAlign={'right'} py={10}>
+        <Box paddingTop={50} bgGradient='linear(to-l,  #0b0708,#10171f)' >
+          <Text sx={heading1} textAlign={'right'} py={10} px={5}>
             מה האולפן מציע?
           </Text>
         <Show/>
@@ -77,13 +76,12 @@ function HomePage() {
         <Text sx={heading1} textAlign={'center'} paddingTop={100}>
           לקוחות ממליצים
         </Text>
-        <Slideshow/>
-
+        <Swiper />
+        
         <Text sx={heading1} textAlign={'center'} id='Contact'>
           צור קשר
         </Text>
         <Contact/>
-
         </Box>
       <Footer/>
         
