@@ -8,7 +8,8 @@ import {
     DrawerCloseButton,
     Box,
     Image,
-    Flex
+    Flex,
+    Button
   } from '@chakra-ui/react'
   import { HiMenuAlt3 as Menu, HiHome, HiOutlineAnnotation  } from "react-icons/hi";
   import React from 'react'
@@ -44,6 +45,11 @@ function Header() {
       zIndex: 1,
       
     }
+    const headerButtons = {
+      width: '100%',
+      marginY: 2,
+      fontSize: 'xl',
+    }
   
     const { isOpen, onOpen, onClose } = useDisclosure()
     return (
@@ -69,6 +75,11 @@ function Header() {
             </DrawerHeader>
             <DrawerCloseButton fontSize={'xl'} transition={'all 0.2s'} _hover={{fontSize: '2xl', color: '#0D74FF'}} color={'black'} marginY={3} />
             <DrawerBody>
+
+              <Button sx={headerButtons}>מוצרי האולפן</Button>
+              <Button sx={headerButtons}>צור קשר</Button>
+              <Button sx={headerButtons}>מאמרי מידע</Button>
+              <Button sx={headerButtons}>פרוייקטים שעשיתי</Button>
               
             </DrawerBody>
           </DrawerContent>

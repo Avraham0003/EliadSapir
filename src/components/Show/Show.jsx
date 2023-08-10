@@ -1,9 +1,10 @@
-import { Box, Image, Flex, Text } from '@chakra-ui/react';
+import { Box, Image, Flex, Text, Center } from '@chakra-ui/react';
 import React from 'react';
 import img1 from './1.png';
 import img2 from './2.png';
 import img3 from './3.png';
 import img4 from './4.png';
+import img5 from './5.png';
 
 function Show() {
   const image_style = {
@@ -26,8 +27,7 @@ function Show() {
     fontSize: ['15px','25px'],
     fontWeight: 'bold',
     bg: 'rgba(0,0,0,0.5)',
-    width: '100%',
-    TextAlign: 'center',
+    width: '100%'
   };
 
   return (
@@ -35,35 +35,31 @@ function Show() {
       <Flex gap="0" wrap="wrap" justify="center">
         <Box position="relative">
           <Image sx={image_style} src={img1} />
-          <Text sx={text_style}>הקלטות שירים</Text>
+          <Center sx={text_style}>הקלטות</Center>
         </Box>
         <Box position="relative">
           <Image sx={image_style} src={img3} />
-          <Text sx={text_style}>Your Text Here</Text>
+          <Center sx={text_style}>הפקה מוזיקלית</Center>
         </Box>
         <Box position="relative">
           <Image sx={image_style} src={img2} />
-          <Text sx={text_style}>מיקס ומאסטרינג</Text>
+          <Center sx={text_style}>פודקסטים</Center>
         </Box>
         <Box position="relative">
           <Image sx={image_style} src={img4} />
-          <Text sx={text_style}>Your Text Here</Text>
+          <Center sx={text_style}>מיקס ומאסטרינג</Center>
         </Box>
         <Box position="relative">
           <Image sx={image_style} src={img1} />
-          <Text sx={text_style}>Your Text Here</Text>
+          <Center sx={text_style}>אירועים</Center>
         </Box>
         <Box position="relative">
-          <Image sx={image_style} src={img2} />
-          <Text sx={text_style}>Your Text Here</Text>
+          <Image sx={image_style} src={img5} />
+          <Center sx={text_style}>רשתות חברתיות</Center>
         </Box>
         <Box position="relative">
           <Image sx={image_style} src={img1} />
-          <Text sx={text_style}>Your Text Here</Text>
-        </Box>
-        <Box position="relative">
-          <Image sx={image_style} src={img2} />
-          <Text sx={text_style}>Your Text Here</Text>
+          <Center sx={text_style}>שיווק</Center>
         </Box>
       </Flex>
     </>
