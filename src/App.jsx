@@ -1,6 +1,7 @@
 import {createBrowserRouter,RouterProvider,Route, createRoutesFromElements} from "react-router-dom";
 import HomePage from "./Pages/HomePgae/HomePage";
 import BeatPage from "./Pages/Beat/BeatPage";
+import ProductsPage from "./Pages/Products/Products";
 function App() {
 
 
@@ -10,6 +11,8 @@ function App() {
 <>
           <Route path="/" element={<HomePage/>} />
           <Route path="/Beat" element={<BeatPage/>} />
+          <Route path="/Producs" element={<ProductsPage/>} />
+
 </>
     )
   );

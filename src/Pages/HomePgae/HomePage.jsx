@@ -1,6 +1,7 @@
 import { Text, Box, Image, Flex, Button, IconButton, Spacer} from '@chakra-ui/react'
 import React, { useState } from 'react';
 import { FaComments, FaWhatsapp, FaAngleDown } from 'react-icons/fa';
+import Header from '../../components/Header/Header';
 import eliad from './MainEliad.png';
 import Contact from './Contact';
 import Swiper from '../../components/Swiper/Swiper';
@@ -42,6 +43,7 @@ function HomePage() {
 
   return (
     <>
+    <Header  />
       <Flex align="center" 
       height={'100vh'} 
       width={'100%'}

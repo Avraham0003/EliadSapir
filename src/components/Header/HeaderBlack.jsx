@@ -15,13 +15,8 @@ import {
   import { HiMenuAlt3 as Menu, HiHome, HiOutlineAnnotation  } from "react-icons/hi";
   import React from 'react'
   import logo from '../../assets/mainEliadLogo.png';
-  import EliadAudio from '../../assets/EliadAudio.mp3';
 
-function Header() {
-
-  const playAudio = ()=> {
-    new Audio(EliadAudio).play();
-  }
+function HeaderBlack() {
 
     const menu_button_style = {
       cursor: 'pointer',
@@ -37,13 +32,13 @@ function Header() {
       }
     }
     const header_style = {
-      py: 5,
+      py: 2,
       px: [5,10,50],
-      position: 'absolute',// Can be remove
       top: 0,
       left: 0,
       width: '100%',
       zIndex: 1,
+      bg: '#000',
       
     }
     const headerButtons = {
@@ -58,7 +53,7 @@ function Header() {
         <Box sx={header_style} dir='ltr'>
           <Flex align="center" justify="space-between" >
             <Box>
-               <Image src={logo} alt='logo' width={['150px','200px','250px']} cursor={'pointer'} onClick={()=> playAudio()}/>
+               <Link href='/'><Image src={logo} alt='logo' width={['150px','200px','250px']} cursor={'pointer'}/></Link>
              </Box>
             <Box onClick={onOpen} sx={menu_button_style} ><Menu /></Box>
           </Flex>
@@ -72,7 +67,7 @@ function Header() {
           <DrawerOverlay />
           <DrawerContent width={'40%'} >
             <DrawerHeader borderBottomWidth='1px' fontSize={'2xl'} color={'#0D74FF'} padding={5}>
-                EliadSapir
+                אליעד ספיר
             </DrawerHeader>
             <DrawerCloseButton fontSize={'xl'} transition={'all 0.2s'} _hover={{fontSize: '2xl', color: '#0D74FF'}} color={'black'} marginY={3} />
             <DrawerBody>
@@ -89,5 +84,5 @@ function Header() {
     );
   };
   
-  export default Header;
+  export default HeaderBlack;
   

@@ -24,10 +24,10 @@ function Show() {
     top: '90%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    fontSize: ['15px','25px'],
+    fontSize: ['20px','30px'],
     fontWeight: 'bold',
-    bg: 'rgba(0,0,0,0.5)',
-    width: '100%'
+    width: '100%',
+    textShadow: '2px 2px black'
   };
 
   return (
