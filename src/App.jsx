@@ -10,8 +10,8 @@ function App() {
     createRoutesFromElements(
 <>
           <Route path="/" element={<HomePage/>} />
-          <Route path="/Beat" element={<BeatPage/>} />
-          <Route path="/Producs" element={<ProductsPage/>} />
+          <Route path="/beat" element={<BeatPage/>} />
+          <Route path="/producs" element={<ProductsPage/>} />
 
 </>
     )
