@@ -77,7 +77,7 @@ function Header() {
             <DrawerCloseButton fontSize={'xl'} transition={'all 0.2s'} _hover={{fontSize: '2xl', color: '#0D74FF'}} color={'black'} marginY={3} />
             <DrawerBody>
 
-              <Button sx={headerButtons}><Link href={'/producs'}>מוצרי האולפן</Link></Button>
+              <Button sx={headerButtons}><Link href={'/products'}>מוצרי האולפן</Link></Button>
               <Button sx={headerButtons}>צור קשר</Button>
               <Button sx={headerButtons}>מאמרי מידע</Button>
               <Button sx={headerButtons}>פרוייקטים שעשיתי</Button>
