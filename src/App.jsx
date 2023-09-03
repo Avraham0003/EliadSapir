@@ -2,6 +2,7 @@ import {createBrowserRouter,RouterProvider,Route, createRoutesFromElements} from
 import HomePage from "./Pages/HomePgae/HomePage";
 import BeatPage from "./Pages/Beat/BeatPage";
 import ProductsPage from "./Pages/Products/Products";
+import ProductPage from './Pages/ProductPage/ProductPage'
 function App() {
 
 
@@ -12,6 +13,8 @@ function App() {
           <Route path="/" element={<HomePage/>} />
           <Route path="/beat" element={<BeatPage/>} />
           <Route path="/products" element={<ProductsPage/>} />
+          <Route path="/product/:id" element={<ProductPage/>} />
+
 
 </>
     )

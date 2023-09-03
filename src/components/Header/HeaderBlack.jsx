@@ -14,7 +14,7 @@ import {
   } from '@chakra-ui/react'
   import { HiMenuAlt3 as Menu, HiHome, HiOutlineAnnotation  } from "react-icons/hi";
   import React from 'react'
-  import logo from '../../assets/mainEliadLogo.png';
+  import logo from '../../assets/BlackmainEliadLogo.png';
 
 function HeaderBlack() {
 
@@ -22,7 +22,7 @@ function HeaderBlack() {
       cursor: 'pointer',
       float: 'right',
       fontSize: '40px',
-      color: 'white',
+      color: 'black',
       transition: 'all 0.2s',
       borderRadius: '10%',
       _hover:{
@@ -37,8 +37,7 @@ function HeaderBlack() {
       top: 0,
       left: 0,
       width: '100%',
-      zIndex: 1,
-      bg: '#000',
+      zIndex: 1
       
     }
     const headerButtons = {
@@ -72,8 +71,7 @@ function HeaderBlack() {
             <DrawerCloseButton fontSize={'xl'} transition={'all 0.2s'} _hover={{fontSize: '2xl', color: '#0D74FF'}} color={'black'} marginY={3} />
             <DrawerBody>
 
-              <Button sx={headerButtons}><Link href={'/Producs'}>מוצרי האולפן</Link></Button>
-              <Button sx={headerButtons}>צור קשר</Button>
+              <Button sx={headerButtons}><Link href={'/products'}>מוצרי האולפן</Link></Button>
               <Button sx={headerButtons}>מאמרי מידע</Button>
               <Button sx={headerButtons}>פרוייקטים שעשיתי</Button>
               
