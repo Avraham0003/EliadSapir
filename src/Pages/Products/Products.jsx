@@ -2,6 +2,8 @@ import React from 'react'
 import Header from '../../components/Header/HeaderBlack'
 import { Heading , Center, Card,CardBody,Flex, Image,Button,Text, Link} from '@chakra-ui/react'
 import img1 from '../../assets/productsImages/1.png'
+import Footer from '../../components/Footer/Footer';
+
 function Products() {
   const imagestyle = {
     _hover: {
@@ -23,7 +25,7 @@ function Products() {
     <Header/>
     
     <Center>
-      <Heading fontSize={'6xl'} marginBottom={10}>מוצרי האולפן</Heading>
+    <Heading fontSize={'6xl'} py={2} marginBottom={10} textShadow={'3px -2px #0D74FF'}>מוצרי האולפן</Heading>
     </Center>
     <Flex gap="5" wrap="wrap" justify="center">
     <Card>
@@ -64,6 +66,8 @@ function Products() {
     
     
     </Flex>
+    <Footer/>
+    
     </>
   )
 }

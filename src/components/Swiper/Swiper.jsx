@@ -32,7 +32,7 @@ export default () => {
       // install Swiper modules
       modules={[Navigation, Pagination]}
       spaceBetween={1}
-      slidesPerView={2}
+      slidesPerView={3}
       navigation
       pagination={{ clickable: true }}
       onSwiper={(swiper) => console.log(swiper)}
