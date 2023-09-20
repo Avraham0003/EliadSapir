@@ -12,7 +12,7 @@ import Show from '../../components/Show/Show';
 function HomePage() {
 
   const heading = {
-    fontSize: ['50px', '70px', '90px'],
+    fontSize: ['60px', '70px', '90px'],
     color: '#0D74FF',
     fontWeight: 'bold',
   }
@@ -53,7 +53,7 @@ function HomePage() {
           <Text fontSize={['30px', '50px', '70px']} letterSpacing={'-1px'} color={'white'} as={'p'}>
             הבית לאמנים גדולים
           </Text>
-          <Text width={'100%'} color={'white'} marginY={10} fontSize={['13px', '20px', '30px']}>
+          <Text width={'100%'} color={'white'} marginY={10} fontSize={['0', '20px', '30px']}>
             אולפן הקלטות והפקות לאמנים, אירועים, עסקים ולכל דרישה.
             <br />
              ציוד צילום, הקלטה והפקה ברמה הכי גבוהה שיש.
@@ -84,7 +84,12 @@ function HomePage() {
             מי אני?
           </Text>
           <Text width={'100%'} color={'white'} marginY={10} fontSize={['13px', '20px', '30px']}>
-            אני אליעד ספיר בן 24, בעלים של אולפן הקלטות וכו וכו וכו
+          אני אליעד ספיר מפיק ומעבד מוזיקלי בעל נסיון של מעל <Text fontSize={'3xl'} color={'blue'} fontWeight={'extrabold'}>7</Text> שנים .
+מתמקצע בהדרכה קולית לאלו היודעים לשיר וגם לאלו שלא.
+בנוסף ביצירת שיר לאוויר העולם.
+החל מכתיבה והלחנה,עיבוד והפקה ,ועד לשלב המיקס והמאסטר.
+לדעתי בכל אדם יש את האמן החבוי בו ולכן
+אני קורא לאולפן שלי הבית לאמנים גדולים. עבודתי לגרום לאמן להשמע טוב ולמקסם את קולו בצורה הטובה ביותר.
           </Text>
         </Box>
         <Spacer/>
@@ -96,9 +101,6 @@ function HomePage() {
         </Text>
         <Swiper />
         
-        <Text sx={heading1} textAlign={'center'} id='Contact'>
-          צור קשר
-        </Text>
         <Contact/>
         </Box>
       <Footer/>

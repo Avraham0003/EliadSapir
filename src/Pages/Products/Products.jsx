@@ -25,7 +25,7 @@ function Products() {
     <Header/>
     
     <Center>
-    <Heading fontSize={'6xl'} py={2} marginBottom={10} textShadow={'3px -2px #0D74FF'}>מוצרי האולפן</Heading>
+    <Heading fontSize={'6xl'} py={2} marginBottom={10}>מוצרי האולפן</Heading>
     </Center>
     <Flex gap="5" wrap="wrap" justify="center">
     <Card>
