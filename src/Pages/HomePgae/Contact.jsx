@@ -11,6 +11,7 @@ import {
   Input,
   InputGroup,
   InputRightElement,
+  Text,
   Stack,
   Select,
   useColorModeValue,
@@ -23,6 +24,8 @@ const heading1 = {
   fontSize: ['40px', '50px', '80px'],
   color: '#0D74FF',
   fontWeight: 'bold',
+  textShadow: '1px 1px white',
+
 }
 
 const confetti = {
@@ -38,7 +41,7 @@ export default function Contact() {
 
   return (
     <Flex
-      bg={'gray.100'}
+    bgGradient='linear(to-l,  #0b0708,#10171f)' 
       align="center"
       justify="center"
       css={{
@@ -68,9 +71,10 @@ export default function Contact() {
                     size="lg"
                     fontSize="3xl"
                     icon={<MdPhone />}
+                    color= "white"
+                    bg= "gray.800"
                     _hover={{
                       bg: 'blue.500',
-                      color: 'white',
                     }}
                     isRound
                   />
@@ -81,9 +85,10 @@ export default function Contact() {
                     size="lg"
                     fontSize="3xl"
                     icon={<BsInstagram />}
+                    color= "white"
+                    bg= "gray.800"
                     _hover={{
                       bg: 'blue.500',
-                      color: 'white',
                     }}
                     isRound
                   />
@@ -95,9 +100,10 @@ export default function Contact() {
                     variant="ghost"
                     size="lg"
                     icon={<BsFacebook size="28px"/>}
+                    color= "white"
+                    bg= "gray.800"
                     _hover={{
                       bg: 'blue.500',
-                      color: useColorModeValue('white', 'gray.700'),
                     }}
                     isRound
                   />
@@ -109,9 +115,10 @@ export default function Contact() {
                     variant="ghost"
                     size="lg"
                     icon={<BsTiktok size="28px" />}
+                    color= "white"
+                    bg= "gray.800"
                     _hover={{
                       bg: 'blue.500',
-                      color: useColorModeValue('white', 'gray.700'),
                     }}
                     isRound
                   />
@@ -119,10 +126,10 @@ export default function Contact() {
               </Stack>
 
               <Box
-                bg={useColorModeValue('white', 'gray.700')}
+                bg={'gray.800'}
                 borderRadius="lg"
                 p={8}
-                color={useColorModeValue('gray.700', 'whiteAlpha.900')}
+                color={'whiteAlpha.900'}
                 shadow="base">
                 <VStack spacing={5}>
                   <FormControl isRequired>
