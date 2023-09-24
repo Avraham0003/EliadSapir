@@ -34,12 +34,7 @@ const CONFETTI_LIGHT = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
     fontWeight: 'bold',
     textShadow: '1px 1px white',
   }
-  const heading2 = {
-    fontSize: ['40px', '50px', '80px'],
-    color: 'white',
-    fontWeight: 'bold',
-    px: '10'
-  }
+
 
   const handleClickScroll = () => {
     const element = document.getElementById('contact');
@@ -71,7 +66,7 @@ const CONFETTI_LIGHT = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
             <br />
              ציוד צילום, הקלטה והפקה ברמה הכי גבוהה שיש.
           </Text>
-          <Button fontSize={'xl'} opacity={0.6} onClick={()=>{ handleClickScroll()}} variant='outline' color={'white'}>צור קשר &nbsp;<FaComments /></Button>
+          <Button fontSize={'xl'} onClick={()=>{ handleClickScroll()}} variant='outline' color={'rgba(255, 255, 255, 1)'}>צור קשר &nbsp;<FaComments /></Button>
         </Box>
         <Spacer/>
         <Image src={eliad} alt='eliad sapir photo' width={['100%', '50%', '30%']} marginTop={200} position={['absolute','absolute', 'relative']} zIndex={0} />
@@ -79,43 +74,46 @@ const CONFETTI_LIGHT = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 
 
         <Box paddingTop={50} bgGradient='linear(to-l,  #0b0708,#10171f)' >
-          <Text sx={heading1} textAlign={'right'} py={10} px={5}>
+          <Text sx={heading1} py={10} textAlign={'center'}>
             מה האולפן מציע?
           </Text>
         <Show/>
 
         <Flex
         marginTop={0}
-        align="center" 
+        padding={0}
+        align={['start','start','start','start','center']} 
       height={'100vh'} 
       width={'100%'}
       css={{
         backgroundImage: CONFETTI_LIGHT,
         backgroundAttachment: 'fixed',
       }}     
-       padding={0}
       >
-        <Box paddingRight={[2,10]} marginBottom={[300,0]} zIndex={1} >
-          <Text sx={heading1}>
+        <Box paddingRight={[2,10]} zIndex={1} paddingTop={[50,0]} >
+          <Text sx={heading1} textAlign={'center'}>
             מי אני?
           </Text>
-          <Text width={'100%'} color={'white'} marginY={10} fontSize={['13px', '20px', '25px']}>
-          אני אליעד ספיר מפיק ומעבד מוזיקלי בעל נסיון של <span style={{fontSize:'30px',color:'#4299E1',fontWeight:'bold'}}>מעל 7 שנים</span> בתחום.
+
+          <Flex>
+          <Text width={'100%'} color={'white'} marginY={[10]} fontSize={['15px', '20px', '25px']} textShadow={'2px 2px black'}>
+          אני אליעד ספיר מפיק ומעבד מוזיקלי בעל נסיון של <Text fontSize={['25px','30px']} color={'#0D74FF'} fontWeight={'bold'} display={'inline'} marginX={1} textShadow={'0.5px 0.5px white'}>מעל 7 שנים</Text> בתחום.
 מתמקצע בהדרכה קולית לאלו היודעים לשיר וגם לאלו שלא.
-בנוסף ביצירת שיר לאוויר העולם.
-החל מכתיבה והלחנה,עיבוד והפקה ,ועד לשלב המיקס והמאסטר.
+בנוסף ביצירת שיר לאוויר העולם -
+החל מכתיבה, הלחנה, עיבוד, הפקה - ועד לשלב המיקס והמאסטר.
 <br />  
-<span style={{fontSize:'30px',color:'#4299E1',fontWeight:'bold', margin:'0 5px 0 5px'}}>
+<Text fontSize={['20px','30px']} color={'#0D74FF'} fontWeight={'bold'} display={'inline'} marginX={1} textShadow={'0.5px 0.5px white'}>
 בכל אדם יש את האמן החבוי בו 
-</span>
+</Text>
  ולכן אני קורא לאולפן שלי הבית לאמנים גדולים. עבודתי לגרום לאמן להשמע טוב ולמקסם את קולו בצורה הטובה ביותר.
           </Text>
+          </Flex>
         </Box>
         <Spacer/>
-        <Image src={eliad2} alt='eliad sapir photo' width={['100%', '50%', '30%']} marginTop={200} position={['absolute','absolute', 'relative']} zIndex={0} />
+        <Image src={eliad2} alt='eliad sapir photo' width={['100%', '50%', '30%']} marginTop={[320,200]} position={['absolute','absolute', 'relative']} zIndex={0} filter={['brightness(0.70)', 'brightness(0.70)', 'brightness(1)']} />
       </Flex>
 
-        <Text sx={heading1} textAlign={'center'} paddingTop={100}>
+        <Text sx={heading1} textAlign={'center'}>
           לקוחות ממליצים
         </Text>
         <Swiper />

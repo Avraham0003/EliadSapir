@@ -1,0 +1,7 @@
+@font-face {
+    font-family: 'NotoSans'; /* Choose a name for your font */
+    src: url('./NotoSansHebrew.ttf') format('truetype'); /* Adjust the path to your font file */
+    font-weight: normal;
+    font-style: normal;
+  }
+  

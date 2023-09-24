@@ -3,23 +3,33 @@
 import {
   Box,
   Button,
-  Flex,
+  Center,
+  Icon,
   FormControl,
   FormLabel,
-  Heading,
-  IconButton,
   Input,
   InputGroup,
   InputRightElement,
   Text,
-  Stack,
   Select,
-  useColorModeValue,
   VStack,
-} from '@chakra-ui/react'
-import { BsInstagram, BsTiktok, BsPerson, BsFacebook } from 'react-icons/bs'
-import { MdOutlineEmail,MdPhone } from 'react-icons/md'
+  SimpleGrid,
 
+
+} from '@chakra-ui/react'
+import { BsInstagram, BsTiktok, BsPerson, BsFacebook, BsWhatsapp } from 'react-icons/bs'
+import { MdOutlineEmail, MdPhone } from 'react-icons/md'
+
+
+const SocialButton = {
+  color: 'white',
+  fontSize: '20px',
+  mx: '2px',
+  my: '2px',
+  _hover: {
+    bg: 'rgba(255, 255, 255, 0.1)',
+  }
+}
 const heading1 = {
   fontSize: ['40px', '50px', '80px'],
   color: '#0D74FF',
@@ -40,146 +50,78 @@ const CONFETTI_LIGHT = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 export default function Contact() {
 
   return (
-    <Flex
-    bgGradient='linear(to-l,  #0b0708,#10171f)' 
-      align="center"
-      justify="center"
-      css={{
-        backgroundImage: CONFETTI_LIGHT,
-        backgroundAttachment: 'fixed',
-      }}
-      id="contact">
-      <Box borderRadius="lg" m={{ base: 5, md: 16, lg: 10 }} p={{ base: 5, lg: 16 }}>
-        <Box>
-          <VStack spacing={{ base: 4, md: 8, lg: 20 }}>
-            <Heading
-              sx={heading1}>
-              נהיה בקשר
-            </Heading>
+    <>
+      <Text sx={heading1} textAlign={'center'}>נהיה בקשר</Text>
+      <Center>
 
-            <Stack
-              spacing={{ base: 4, md: 8, lg: 20 }}
-              direction={{ base: 'column', md: 'row' }}>
-              <Stack
-                align="center"
-                justify="space-around"
-                direction={{ base: 'row', md: 'column' }}>
-                
-                  <IconButton
-                    aria-label="phone"
-                    variant="ghost"
-                    size="lg"
-                    fontSize="3xl"
-                    icon={<MdPhone />}
-                    color= "white"
-                    bg= "gray.800"
-                    _hover={{
-                      bg: 'blue.500',
-                    }}
-                    isRound
-                  />
-                <Box as="a" href="#">
-                  <IconButton
-                    aria-label="instagram"
-                    variant="ghost"
-                    size="lg"
-                    fontSize="3xl"
-                    icon={<BsInstagram />}
-                    color= "white"
-                    bg= "gray.800"
-                    _hover={{
-                      bg: 'blue.500',
-                    }}
-                    isRound
-                  />
-                </Box>
+        <Box
+          id='contact'
+          bg={'rgba(0, 0, 0, 0.30)'}
+          borderRadius="lg"
+          py={8}
+          px={[15, 15, 15, 150]}
+          width={['90%', '80%','70%','60%','40%']}
+          color={'whiteAlpha.900'}
+          shadow="base">
+          <VStack spacing={5}>
+            <FormControl isRequired>
+              <FormLabel>שם</FormLabel>
 
-                <Box as="a" href="#">
-                  <IconButton
-                    aria-label="facebook"
-                    variant="ghost"
-                    size="lg"
-                    icon={<BsFacebook size="28px"/>}
-                    color= "white"
-                    bg= "gray.800"
-                    _hover={{
-                      bg: 'blue.500',
-                    }}
-                    isRound
-                  />
-                </Box>
+              <InputGroup>
+                <InputRightElement>
+                  <BsPerson />
+                </InputRightElement>
+                <Input type="text" name="name" placeholder="השם שלך" paddingLeft={0} paddingRight={8} />
+              </InputGroup>
+            </FormControl>
 
-                <Box as="a" href="#">
-                  <IconButton
-                    aria-label="tiktok"
-                    variant="ghost"
-                    size="lg"
-                    icon={<BsTiktok size="28px" />}
-                    color= "white"
-                    bg= "gray.800"
-                    _hover={{
-                      bg: 'blue.500',
-                    }}
-                    isRound
-                  />
-                </Box>
-              </Stack>
+            <FormControl isRequired>
+              <FormLabel>מייל</FormLabel>
 
-              <Box
-                bg={'gray.800'}
-                borderRadius="lg"
-                p={8}
-                color={'whiteAlpha.900'}
-                shadow="base">
-                <VStack spacing={5}>
-                  <FormControl isRequired>
-                    <FormLabel>שם</FormLabel>
+              <InputGroup>
+                <InputRightElement>
+                  <MdOutlineEmail />
+                </InputRightElement>
+                <Input type="email" name="email" placeholder="המייל שלך" paddingLeft={0} paddingRight={8} />
+              </InputGroup>
+            </FormControl>
 
-                    <InputGroup>
-                      <InputRightElement>
-                        <BsPerson />
-                      </InputRightElement>
-                      <Input type="text" name="name" placeholder="השם שלך" paddingLeft={0} paddingRight={8}/>
-                    </InputGroup>
-                  </FormControl>
+            <FormControl id="category" isRequired>
+              <FormLabel>תחום הפנייה:</FormLabel>
+              <Select dir="rtl">
+                <option value="1">מחלקת אמנים</option>
+                <option value="2">מחלקת אירועים</option>
+                <option value="3">מחלקת עסקים</option>
+                <option value="4">אחר</option>
+                =                           </Select>
+            </FormControl>
 
-                  <FormControl isRequired>
-                    <FormLabel>מייל</FormLabel>
-
-                    <InputGroup>
-                      <InputRightElement>
-                        <MdOutlineEmail />
-                      </InputRightElement>
-                      <Input type="email" name="email" placeholder="המייל שלך" paddingLeft={0} paddingRight={8}/>
-                    </InputGroup>
-                  </FormControl>
-
-                  <FormControl id="category" isRequired>
-                            <FormLabel>תחום הפנייה:</FormLabel>
-                            <Select dir="rtl">
-                              <option value="1">מחלקת אמנים</option>
-                              <option value="2">מחלקת אירועים</option>
-                              <option value="3">מחלקת עסקים</option>
-                              <option value="4">אחר</option>
-=                           </Select>
-                          </FormControl>
-
-                  <Button
-                    colorScheme="blue"
-                    bg="blue.400"
-                    color="white"
-                    _hover={{
-                      bg: 'blue.500',
-                    }}
-                    width="full">
-                    תחזרו אליי!
-                  </Button>
-                </VStack>
-              </Box>
-            </Stack>
+            <Button
+              colorScheme="blue"
+              bg='#0D74FF'
+              color="white"
+              _hover={{
+                bg: '#0D00FF'
+              }}
+              width="full">
+              תחזרו אליי!
+            </Button>
           </VStack>
         </Box>
-      </Box>
-    </Flex>
+      </Center>
+
+
+
+      <SimpleGrid columns={{ base: 1, md: 4 }} spacing={{ base: 0, lg: 0 }} padding={2}>
+        <Button sx={SocialButton} bg={'green.400'}> WhatsApp &nbsp;<Icon as={BsWhatsapp} /></Button>
+
+        <Button sx={SocialButton} colorScheme='facebook'>Facebook &nbsp;<Icon as={BsFacebook} /></Button>
+
+        <Button sx={SocialButton} bg={'#8134AF'}>instagram &nbsp;<Icon as={BsInstagram} /></Button>
+
+        <Button sx={SocialButton} bg={'#EE1D52'}>Tiktok &nbsp;<Icon as={BsTiktok} /></Button>
+
+      </SimpleGrid>
+    </>
   )
 }
