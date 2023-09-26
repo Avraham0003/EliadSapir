@@ -56,7 +56,6 @@ export default function Contact() {
 
         <Box
           id='contact'
-          bg={'rgba(0, 0, 0, 0.30)'}
           borderRadius="lg"
           py={8}
           px={[15, 15, 15, 150]}
@@ -65,7 +64,7 @@ export default function Contact() {
           shadow="base">
           <VStack spacing={5}>
             <FormControl isRequired>
-              <FormLabel>שם</FormLabel>
+              <FormLabel>שם:</FormLabel>
 
               <InputGroup>
                 <InputRightElement>
@@ -76,7 +75,7 @@ export default function Contact() {
             </FormControl>
 
             <FormControl isRequired>
-              <FormLabel>מייל</FormLabel>
+              <FormLabel>מייל:</FormLabel>
 
               <InputGroup>
                 <InputRightElement>

@@ -2,7 +2,6 @@
 import Header from '../../components/Header/HeaderBlack'
 import { Heading ,Center, Image, Text ,Flex ,Spacer ,Button, Box} from '@chakra-ui/react'
 import img1 from '../../assets/productsImages/1.png'
-import EliadAudio from '../../assets/EliadAudio.mp3';
 
 function ProductPage() {
   return (
@@ -28,6 +27,7 @@ export default ProductPage
 'use client'
 import Header from '../../components/Header/HeaderBlack'
 import img1 from '../../assets/productsImages/1.png'
+import EliadAudio from '../../assets/EliadAudio.mp3';
 
 import {
   Box,
@@ -75,13 +75,13 @@ export default function Simple() {
                 lineHeight={1.1}
                 fontWeight={600}
                 fontSize={{ base: '2xl', sm: '4xl', lg: '5xl' }}>
-                Automatic Watch
+                  ביט באס
               </Heading>
               <Text
                 color={useColorModeValue('gray.900', 'gray.400')}
                 fontWeight={300}
                 fontSize={'2xl'}>
-                $350.00 USD
+                350 ₪
               </Text>
             </Box>
 
@@ -99,11 +99,6 @@ export default function Simple() {
                   Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
                   eirmod tempor invidunt ut labore
                 </Text>
-                <Text fontSize={'lg'}>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquid amet
-                  at delectus doloribus dolorum expedita hic, ipsum maxime modi nam officiis
-                  porro, quae, quisquam quos reprehenderit velit? Natus, totam.
-                </Text>
               </VStack>
               <Box>
                 <Text
@@ -112,21 +107,11 @@ export default function Simple() {
                   fontWeight={'500'}
                   textTransform={'uppercase'}
                   mb={'4'}>
-                  Features
+                  תצוגה מקדימה
                 </Text>
+                <audio controls src={EliadAudio}></audio>
 
-                <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-                  <List spacing={2}>
-                    <ListItem>Chronograph</ListItem>
-                    <ListItem>Master Chronometer Certified</ListItem>{' '}
-                    <ListItem>Tachymeter</ListItem>
-                  </List>
-                  <List spacing={2}>
-                    <ListItem>Anti‑magnetic</ListItem>
-                    <ListItem>Chronometer</ListItem>
-                    <ListItem>Small seconds</ListItem>
-                  </List>
-                </SimpleGrid>
+                
               </Box>
               <Box>
                 <Text
