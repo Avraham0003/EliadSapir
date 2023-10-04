@@ -31,7 +31,7 @@ function Header() {
       transition: 'all 0.2s',
       borderRadius: '10%',
       _hover:{
-        color: '#0D74FF',
+        color: '#0baaf0',
         fontSize: '45px',
         transition: 'all 0.2s'
       }
@@ -71,13 +71,13 @@ function Header() {
         >
           <DrawerOverlay />
           <DrawerContent width={'40%'} >
-            <DrawerHeader borderBottomWidth='1px' fontSize={'2xl'} color={'#0D74FF'} padding={5}>
-                EliadSapir
+            <DrawerHeader borderBottomWidth='1px' fontSize={'2xl'} color={'#0baaf0'} padding={5}>
+                אליעד ספיר
             </DrawerHeader>
             <DrawerCloseButton fontSize={'xl'} transition={'all 0.2s'} _hover={{fontSize: '2xl', color: '#0D74FF'}} color={'black'} marginY={3} />
             <DrawerBody>
 
-              <Button sx={headerButtons}><Link href={'/products'}>מוצרי האולפן</Link></Button>
+              <Button sx={headerButtons} bg={'#0baaf0'}><Link href={'/products'} color={'white'}>מוצרי האולפן</Link></Button>
               <Button sx={headerButtons}>מאמרי מידע</Button>
               <Button sx={headerButtons}>פרוייקטים שעשיתי</Button>
               

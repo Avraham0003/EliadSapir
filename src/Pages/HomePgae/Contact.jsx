@@ -32,9 +32,8 @@ const SocialButton = {
 }
 const heading1 = {
   fontSize: ['40px', '50px', '80px'],
-  color: '#0D74FF',
+  color: '#0baaf0',
   fontWeight: 'bold',
-  textShadow: '1px 1px white',
 
 }
 
@@ -51,7 +50,7 @@ export default function Contact() {
 
   return (
     <>
-      <Text sx={heading1} textAlign={'center'}>נהיה בקשר</Text>
+      <Text sx={heading1} textAlign={'center'} className='Heading'>נהיה בקשר</Text>
       <Center>
 
         <Box

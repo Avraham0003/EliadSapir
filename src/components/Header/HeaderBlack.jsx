@@ -26,7 +26,7 @@ function HeaderBlack() {
       transition: 'all 0.2s',
       borderRadius: '10%',
       _hover:{
-        color: '#0D74FF',
+        color: '#0baaf0',
         fontSize: '45px',
         transition: 'all 0.2s'
       }
@@ -65,7 +65,7 @@ function HeaderBlack() {
         >
           <DrawerOverlay />
           <DrawerContent width={'40%'} >
-            <DrawerHeader borderBottomWidth='1px' fontSize={'2xl'} color={'#0D74FF'} padding={5}>
+            <DrawerHeader borderBottomWidth='1px' fontSize={'2xl'} color={'#0baaf0'} padding={5}>
                 אליעד ספיר
             </DrawerHeader>
             <DrawerCloseButton fontSize={'xl'} transition={'all 0.2s'} _hover={{fontSize: '2xl', color: '#0D74FF'}} color={'black'} marginY={3} />
