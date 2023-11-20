@@ -17,7 +17,7 @@ import {
   import logo from '../../assets/mainEliadLogo.png';
   import EliadAudio from '../../assets/EliadAudio.mp3';
 
-function Header() {
+function Header(props) {
 
   const playAudio = ()=> {
     new Audio(EliadAudio).play();
@@ -71,14 +71,14 @@ function Header() {
         >
           <DrawerOverlay />
           <DrawerContent width={'40%'} >
-            <DrawerHeader borderBottomWidth='1px' fontSize={'2xl'} color={'#0baaf0'} padding={5}>
+            <DrawerHeader borderBottomWidth='1px' fontSize={'2xl'} transition={'0.8s'} color={props.Tcolor} padding={5} fontWeight={'bold'}>
                 אליעד ספיר
             </DrawerHeader>
             <DrawerCloseButton fontSize={'xl'} transition={'all 0.2s'} _hover={{fontSize: '2xl', color: '#0D74FF'}} color={'black'} marginY={3} />
             <DrawerBody>
 
-              <Button sx={headerButtons} bg={'#0baaf0'}><Link href={'/products'}>מוצרי האולפן</Link></Button>
-              <Button sx={headerButtons} bg={'#0baaf0'}><Link href={'/articles'}>מאמרי מידע</Link></Button>
+              <Button sx={headerButtons} transition={'0.8s'} bg={props.Tcolor}><Link href={'/products'}>מוצרי האולפן</Link></Button>
+              <Button sx={headerButtons} transition={'0.8s'} bg={props.Tcolor}><Link href={'/articles'}>מאמרי מידע</Link></Button>
               <Button sx={headerButtons}>פרוייקטים שעשיתי</Button>
               
             </DrawerBody>

@@ -14,7 +14,7 @@ function HomePage() {
   let i = 0;
   const [Tcolor, setTcolor] = useState(themeColors[i]);
   
-    const MINUTE_MS = 2000;
+    const MINUTE_MS = 3500;
   
   useEffect(() => {
     const interval = setInterval(() => {
@@ -62,7 +62,7 @@ const CONFETTI_LIGHT = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 
   return (
     <>
-    <Header  />
+    <Header Tcolor={Tcolor}  />
       <Flex align="center" 
       height={'100vh'} 
       width={'100%'}
