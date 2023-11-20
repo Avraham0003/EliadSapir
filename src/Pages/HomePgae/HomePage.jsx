@@ -82,7 +82,7 @@ const CONFETTI_LIGHT = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
             <br />
              ציוד צילום, הקלטה והפקה ברמה הכי גבוהה שיש.
           </Text>
-          <Button fontSize={'xl'} onClick={()=>{ handleClickScroll()}} variant='outline' color={'rgba(255, 255, 255, 1)'}>צור קשר &nbsp;<FaComments /></Button>
+          <Button fontSize={'xl'} onClick={()=>{ handleClickScroll()}} variant='outline' transition={'0.8s'} borderColor={Tcolor} color={Tcolor}>צור קשר &nbsp;<FaComments /></Button>
         </Box>
         <Spacer/>
         <Image src={eliad} alt='eliad sapir photo' width={['100%', '50%', '30%']} marginTop={200} position={['absolute','absolute', 'relative']} zIndex={0} />
