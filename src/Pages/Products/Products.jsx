@@ -7,8 +7,13 @@ import Footer from '../../components/Footer/Footer';
 
 function Products() {
 
+  const heading = {
+    fontSize: ['40px', '50px', '80px'],
+    fontWeight: 'bold',
+  }
+  
   const CardStyle = {
-    width: ['47%','32%'],
+    width: ['47%','30%','20%'],
     padding: '0px'
   }
 
@@ -35,7 +40,7 @@ function Products() {
     <Header/>
     
     <Center>
-    <Text fontSize={'5xl'} marginBottom={10} letterSpacing={'-1px'}>מוצרי האולפן</Text>
+    <Text sx={heading} className='Heading'>מוצרי האולפן</Text>
     </Center>
     <Flex gap="4" wrap="wrap" justify="center" paddingBottom={'10vh'}>
 
@@ -56,6 +61,32 @@ function Products() {
         <Button colorScheme='blue' width={'100%'}><Link href='/product/123'>קנה עכשיו</Link></Button>
       </CardBody>
     </Card> 
+
+
+    <Card sx={CardStyle}>
+      <CardBody padding={2}>
+      <Link href='/product/123'><Image sx={imagestyle} src={img2}/></Link>
+        <Text sx={TextStyle} display={'inline-block'}>מוצר 2</Text>
+        <Text>350₪</Text>
+        <Button colorScheme='blue' width={'100%'}><Link href='/product/123'>קנה עכשיו</Link></Button>
+      </CardBody>
+    </Card> <Card sx={CardStyle}>
+      <CardBody padding={2}>
+      <Link href='/product/123'><Image sx={imagestyle} src={img2}/></Link>
+        <Text sx={TextStyle} display={'inline-block'}>מוצר 2</Text>
+        <Text>350₪</Text>
+        <Button colorScheme='blue' width={'100%'}><Link href='/product/123'>קנה עכשיו</Link></Button>
+      </CardBody>
+    </Card> <Card sx={CardStyle}>
+      <CardBody padding={2}>
+      <Link href='/product/123'><Image sx={imagestyle} src={img2}/></Link>
+        <Text sx={TextStyle} display={'inline-block'}>מוצר 2</Text>
+        <Text>350₪</Text>
+        <Button colorScheme='blue' width={'100%'}><Link href='/product/123'>קנה עכשיו</Link></Button>
+      </CardBody>
+    </Card> 
+
+
     </Flex>
     <Footer/>
     

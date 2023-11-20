@@ -73,7 +73,7 @@ function HeaderBlack() {
 
             <Button sx={headerButtons}><Link href={'/'}>דף הבית</Link></Button>
               <Button sx={headerButtons}><Link href={'/products'}>מוצרי האולפן</Link></Button>
-              <Button sx={headerButtons}>מאמרי מידע</Button>
+              <Button sx={headerButtons}><Link href={'/articles'}>מאמרי מידע</Link></Button>
               <Button sx={headerButtons}>פרוייקטים שעשיתי</Button>
               
             </DrawerBody>

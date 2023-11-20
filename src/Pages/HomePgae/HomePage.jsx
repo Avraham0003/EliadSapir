@@ -1,5 +1,5 @@
 import { Text, Box, Image, Flex, Button, IconButton, Spacer} from '@chakra-ui/react'
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaComments, FaWhatsapp } from 'react-icons/fa';
 import Header from '../../components/Header/Header';
 import eliad from './MainEliad.png';
@@ -8,9 +8,27 @@ import Contact from './Contact';
 import Swiper from '../../components/Swiper/Swiper';
 import Footer from '../../components/Footer/Footer';
 import Show from '../../components/Show/Show';
-
 function HomePage() {
-
+  
+  const themeColors = ['#0baaf0','#FF4633','#AC33FF','#33FF7D'];
+  let i = 0;
+  const [Tcolor, setTcolor] = useState(themeColors[i]);
+  
+    const MINUTE_MS = 2000;
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      console.log('Logs 2 sec');
+      if(i>=3){
+        i = 0;
+      }else{
+        i++;
+      }
+      setTcolor(themeColors[i]);
+    }, MINUTE_MS);
+  
+    return () => clearInterval(interval); // This represents the unmount function, in which you need to clear your interval to prevent memory leaks.
+  }, [])
   
 const confetti = {
   light: {
@@ -23,14 +41,14 @@ const CONFETTI_LIGHT = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 
   const heading = {
     fontSize: ['60px', '70px', '120px'],
-    color: '#0baaf0',
     fontWeight: 'bold',
+    transition:'0.8s'
 
   }
   const heading1 = {
     fontSize: ['40px', '50px', '80px'],
-    color: '#0baaf0',
     fontWeight: 'bold',
+    transition: '0.8s'
   }
 
 
@@ -53,7 +71,7 @@ const CONFETTI_LIGHT = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
       >
         
         <Box paddingRight={[2,10]} marginBottom={[300,0]} zIndex={1}>
-          <Text sx={heading} className='Heading' fontSize={'5xl'}>
+          <Text sx={heading} color={Tcolor} className='Heading' fontSize={'5xl'}>
             אליעד ספיר
           </Text>
           <Text fontSize={['30px', '50px', '70px']} letterSpacing={'-1px'} color={'white'} as={'p'}>
@@ -72,7 +90,7 @@ const CONFETTI_LIGHT = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 
 
         <Box paddingTop={50} bgGradient='linear(to-l,  #0b0708,#10171f)' >
-          <Text sx={heading1} py={10} textAlign={'center'} className='Heading'>
+          <Text sx={heading1} color={Tcolor} py={10} textAlign={'center'} className='Heading'>
             מה האולפן מציע?
           </Text>
         <Show/>
@@ -89,18 +107,18 @@ const CONFETTI_LIGHT = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
       }}     
       >
         <Box paddingRight={[2,10]} zIndex={1} paddingTop={[50,0]} >
-          <Text sx={heading1} textAlign={'center'} className='Heading'>
+          <Text sx={heading1} color={Tcolor} textAlign={'center'} className='Heading'>
             מי אני?
           </Text>
 
           <Flex>
           <Text width={'100%'} color={'white'} marginY={[10]} fontSize={['15px', '20px', '25px']} textShadow={'2px 2px black'}>
-          אני אליעד ספיר מפיק ומעבד מוזיקלי בעל נסיון של <Text fontSize={['25px','30px']} color={'#0baaf0'} fontWeight={'bold'} display={'inline'} marginX={1} textShadow={'0.5px 0.5px black'}>מעל 7 שנים</Text> בתחום.
+          אני אליעד ספיר מפיק ומעבד מוזיקלי בעל נסיון של <Text fontSize={['25px','30px']} transition={'0.8s'} color={Tcolor} fontWeight={'bold'} display={'inline'} marginX={1} textShadow={'0.5px 0.5px black'}>מעל 7 שנים</Text> בתחום.
 מתמקצע בהדרכה קולית לאלו היודעים לשיר וגם לאלו שלא.
 בנוסף ביצירת שיר לאוויר העולם -
 החל מכתיבה, הלחנה, עיבוד, הפקה - ועד לשלב המיקס והמאסטר.
 <br />  
-<Text fontSize={['20px','30px']} color={'#0baaf0'} fontWeight={'bold'} display={'inline'} marginX={1} textShadow={'0.5px 0.5px black'}>
+<Text fontSize={['20px','30px']} transition={'0.8s'} color={Tcolor} fontWeight={'bold'} display={'inline'} marginX={1} textShadow={'0.5px 0.5px black'}>
 בכל אדם יש את האמן החבוי בו 
 </Text>
  ולכן אני קורא לאולפן שלי הבית לאמנים גדולים. עבודתי לגרום לאמן להשמע טוב ולמקסם את קולו בצורה הטובה ביותר.
@@ -111,12 +129,12 @@ const CONFETTI_LIGHT = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
         <Image src={eliad2} alt='eliad sapir photo' width={['100%', '50%', '30%']} marginTop={[320,200]} position={['absolute','absolute', 'relative']} zIndex={0} filter={['brightness(0.70)', 'brightness(0.70)', 'brightness(1)']} />
       </Flex>
 
-        <Text sx={heading1} textAlign={'center'} className='Heading'>
+        <Text sx={heading1} color={Tcolor} textAlign={'center'} className='Heading'>
           לקוחות ממליצים
         </Text>
         <Swiper />
         
-        <Contact/>
+        <Contact Tcolor={Tcolor} heading1={heading1}/>
         </Box>
       <Footer/>
         
