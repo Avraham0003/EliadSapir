@@ -10,7 +10,7 @@ import Footer from '../../components/Footer/Footer';
 import Show from '../../components/Show/Show';
 function HomePage() {
   
-  const themeColors = ['#0baaf0','#FF4633','#AC33FF','#33FF7D'];
+  const themeColors = ['#fff','#0baaf0','#33FF7D','#FF4633'];
   let i = 0;
   const [Tcolor, setTcolor] = useState(themeColors[i]);
   
@@ -18,7 +18,6 @@ function HomePage() {
   
   useEffect(() => {
     const interval = setInterval(() => {
-      console.log('Logs 2 sec');
       if(i>=3){
         i = 0;
       }else{
