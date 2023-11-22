@@ -4,6 +4,8 @@ import Products from "./Pages/Products/Products";
 import ProductPage from './Pages/ProductPage/ProductPage'
 import Articles from "./Pages/Articles/Articles";
 import ArticlePage from './Pages/ArticlePage/ArticlePage'
+import LoginPage from './Pages/Admin/LoginPage'
+import PanelPage from './Pages/Admin/PanelPage'
 
 function App() {
 
@@ -18,6 +20,9 @@ function App() {
 
           <Route path="/articles" element={<Articles/>} />
           <Route path="/article/:id" element={<ArticlePage/>} />
+          
+          <Route path="/admin" element={<LoginPage/>} />
+          <Route path="/admin/panel" element={<PanelPage/>} />
 
 
 

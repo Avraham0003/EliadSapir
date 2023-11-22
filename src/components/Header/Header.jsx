@@ -43,7 +43,7 @@ function Header(props) {
       top: 0,
       left: 0,
       width: '100%',
-      zIndex: 1,
+      zIndex: 1
       
     }
     const headerButtons = {
@@ -70,11 +70,11 @@ function Header(props) {
           onClose={onClose}
         >
           <DrawerOverlay />
-          <DrawerContent width={'40%'} >
-            <DrawerHeader borderBottomWidth='1px' fontSize={'2xl'} transition={'0.8s'} color={props.Tcolor} padding={5} fontWeight={'bold'}>
+          <DrawerContent width={'40%'} bg={'rgba(0,0,0,0.4)'} padding={'10px'} >
+            <DrawerHeader borderBottomWidth='1px' fontSize={'2xl'} transition={'0.8s'} color={'white'} padding={5} fontWeight={'bold'}>
                 אליעד ספיר
             </DrawerHeader>
-            <DrawerCloseButton fontSize={'xl'} transition={'all 0.2s'} _hover={{fontSize: '2xl', color: '#0D74FF'}} color={'black'} marginY={3} />
+            <DrawerCloseButton fontSize={'xl'} transition={'all 0.2s'} color={'white'} _hover={{fontSize: '2xl', color: props.Tcolor}} marginY={3} />
             <DrawerBody>
 
               <Button sx={headerButtons} transition={'0.8s'} bg={props.Tcolor}><Link href={'/products'}>מוצרי האולפן</Link></Button>
