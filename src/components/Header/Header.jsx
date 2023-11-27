@@ -23,7 +23,7 @@ function Header(props) {
     new Audio(EliadAudio).play();
   }
 
-    const menu_button_style = {
+    let menu_button_style = {
       cursor: 'pointer',
       float: 'right',
       fontSize: '40px',
@@ -31,7 +31,7 @@ function Header(props) {
       transition: 'all 0.2s',
       borderRadius: '10%',
       _hover:{
-        color: '#0baaf0',
+        color: props.Tcolor,
         fontSize: '45px',
         transition: 'all 0.2s'
       }
@@ -56,12 +56,14 @@ function Header(props) {
     return (
       <>
         <Box sx={header_style} dir='ltr'>
+            {!isOpen &&
           <Flex align="center" justify="space-between" >
             <Box>
                <Image src={logo} alt='logo' width={['150px','200px','250px']} cursor={'pointer'} onClick={()=> playAudio()}/>
              </Box>
             <Box onClick={onOpen} sx={menu_button_style} ><Menu /></Box>
           </Flex>
+          }
         </Box>
   
         <Drawer
@@ -71,8 +73,8 @@ function Header(props) {
         >
           <DrawerOverlay />
           <DrawerContent width={'40%'} bg={'rgba(0,0,0,0.4)'} padding={'10px'} >
-            <DrawerHeader borderBottomWidth='1px' fontSize={'2xl'} transition={'0.8s'} color={'white'} padding={5} fontWeight={'bold'}>
-                אליעד ספיר
+            <DrawerHeader borderBottomWidth='1px' padding={5}>
+            <Image src={logo} alt='logo' width={['150px','200px','250px']} cursor={'pointer'} onClick={()=> playAudio()}/>
             </DrawerHeader>
             <DrawerCloseButton fontSize={'xl'} transition={'all 0.2s'} color={'white'} _hover={{fontSize: '2xl', color: props.Tcolor}} marginY={3} />
             <DrawerBody>

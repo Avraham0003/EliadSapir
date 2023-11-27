@@ -1,120 +1,147 @@
-import Header from '../../components/Header/HeaderBlack'
-import img1 from '../../assets/productsImages/1.png'
-import EliadAudio from '../../assets/EliadAudio.mp3';
-
+import Header from '../../components/Header/HeaderForAdmin'
 import {
   Box,
-  chakra,
-  Container,
-  Stack,
   Text,
-  Image,
-  Flex,
-  VStack,
   Button,
-  Heading,
-  SimpleGrid,
-  StackDivider,
-  useColorModeValue,
-  VisuallyHidden,
-  List,
-  ListItem,
-} from '@chakra-ui/react'
-import { MdLocalShipping } from 'react-icons/md'
-import { useParams } from 'react-router-dom';
+  Divider,
+  Tabs,
+  TabPanels,
+  TabPanel,
+  Tab,
+  TabList,
+  ModalBody,
+  ModalCloseButton,
+  ModalHeader,
+  ModalContent,
+  ModalOverlay,
+  Modal,
+  useDisclosure,
+  Input,
+  Textarea,
+  FormControl,
+  FormLabel 
+
+} from '@chakra-ui/react';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-
-
+import Products from './Products';
+import Articles from './Articles';
 
 export default function Simple() {
 
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const [formData, setFormData] = useState({
+    product_name: "",
+    product_description: "",
+    product_image: ""
+});
+
+const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+}
+const handleSubmit = (e) => {
+    e.preventDefault()
+    
+    axios.post(import.meta.env.VITE_SERVER_URL+'/products/create', formData)
+    .then((response) => {
+        console.log(response.data);
+        // handle success
+        location.reload();
+    })
+    .catch((error) => {
+        console.log(error);
+        // handle error
+    });
+    
+}
+
+  const heading = {
+    fontSize: '60px',
+    fontWeight: 'bold',
+    transition: '0.8s'
+  }
+
+  const buttonNavStyle = {
+    width: '100%',
+    fontSize: 'xl',
+    marginY: '5px',
+    bg: 'rgba(0,0,0,0.5)',
+    color: 'white'
+  }
 
 
   return (
     <>
-    <Header/>
-      <Container maxW={'7xl'}>
-        <SimpleGrid
-          columns={{ base: 1, lg: 2 }}
-          spacing={{ base: 8, md: 10 }}
-          py={{ base: 18, md: 24 }}>
-          <Flex>
-            <Image
-              rounded={'md'}
-              alt={'product image'}
-              src={img1}
-              fit={'cover'}
-              align={'center'}
-              w={'100%'}
-              h={{ base: '100%', sm: '400px', lg: '500px' }}
-            />
-          </Flex>
-          <Stack spacing={{ base: 6, md: 10 }}>
-            <Box as={'header'}>
-              <Heading
-                lineHeight={1.1}
-                fontWeight={600}
-                fontSize={{ base: '2xl', sm: '4xl', lg: '5xl' }}>
-              </Heading>
-              <Text
-                color={useColorModeValue('gray.900', 'gray.400')}
-                fontWeight={300}
-                fontSize={'2xl'}>
-              </Text>
-            </Box>
+      <Header />
+      <Text textAlign={'center'} sx={heading} className='Heading'>פאנל ניהול</Text>
+      <Divider height={'4px'}></Divider>
 
-            <Stack
-              spacing={{ base: 4, sm: 6 }}
-              direction={'column'}
-              divider={
-                <StackDivider borderColor={useColorModeValue('gray.200', 'gray.600')} />
-              }>
-              <VStack spacing={{ base: 4, sm: 6 }}>
-                <Text
-                  color={useColorModeValue('gray.500', 'gray.400')}
-                  fontSize={'2xl'}
-                  fontWeight={'300'}>
-                </Text>
-              </VStack>
-              <Box>
-                <Text
-                  fontSize={{ base: '16px', lg: '18px' }}
-                  color={useColorModeValue('yellow.500', 'yellow.300')}
-                  fontWeight={'500'}
-                  textTransform={'uppercase'}
-                  mb={'4'}>
-                  תצוגה מקדימה
-                </Text>
-                <audio controls src={EliadAudio}></audio>
+      <Tabs variant='soft-rounded' colorScheme='blue'>
+        <TabList>
+          <Tab width={'25%'}>מוצרים</Tab>
+          <Tab width={'25%'}>מאמרים</Tab>
+          <Tab width={'25%'}>Three</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>
+            {/* מוצרים */}
+            <Button colorScheme={'blue'} onClick={() => onOpen()}>הוסף מוצר +</Button>
+            <Modal isCentered isOpen={isOpen} onClose={onClose}>
+              <ModalOverlay
+                bg='blackAlpha.300'
+                backdropFilter='blur(10px) hue-rotate(90deg)'
+              />
+              <ModalContent>
+                <ModalHeader>הוספת מוצר</ModalHeader>
+                <ModalCloseButton />
+                <ModalBody>
 
-                
-              </Box>
-            </Stack>
+                  <form onSubmit={handleSubmit} dir='rtl'>
+                    <FormControl isRequired >
+                      <FormLabel fontWeight={'bold'}>שם המוצר:</FormLabel>
+                      <Input value={formData.product_name}
+                        onChange={handleChange}
+                        name='product_name'
+                        placeholder='שם המוצר' />
+                    </FormControl>
 
-            <Button
-              rounded={'none'}
-              w={'full'}
-              mt={8}
-              size={'lg'}
-              py={'7'}
-              bg={useColorModeValue('gray.900', 'gray.50')}
-              color={useColorModeValue('white', 'gray.900')}
-              textTransform={'uppercase'}
-              _hover={{
-                transform: 'translateY(2px)',
-                boxShadow: 'lg',
-              }}>
-              קנה עכשיו
-            </Button>
+                    <Divider margin={2} />
 
-            <Stack direction="row" alignItems="center" justifyContent={'center'}>
-              <MdLocalShipping />
-              <Text>2-3 ימי עסקים</Text>
-            </Stack>
-          </Stack>
-        </SimpleGrid>
-      </Container>
+                    <FormControl isRequired>
+                      <FormLabel fontWeight={'bold'}>פירוט המוצר:</FormLabel>
+                      <Textarea value={formData.product_description}
+                        onChange={handleChange}
+                        name='product_description'/>
+                    </FormControl> 
+
+                    <Divider margin={2} />
+
+                    <FormControl isRequired>
+                      <FormLabel fontWeight={'bold'}>תמונת המוצר:</FormLabel>
+                      <Input value={formData.product_image}
+                        onChange={handleChange}
+                        name='product_image'/>
+                    </FormControl>
+                    <Button type='submit' m={4} colorScheme='blue'>צור מוצר</Button>
+                  </form>
+
+                </ModalBody>
+              </ModalContent>
+            </Modal>
+            <Products />
+          </TabPanel>
+          <TabPanel>
+            {/* מאמרים */}
+            
+            <Articles/>
+
+          </TabPanel>
+          <TabPanel>
+            <p>three!</p>
+          </TabPanel>
+        </TabPanels>
+      </Tabs>
+
     </>
   )
 }

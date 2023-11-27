@@ -4,7 +4,6 @@ import EliadAudio from '../../assets/EliadAudio.mp3';
 
 import {
   Box,
-  chakra,
   Container,
   Stack,
   Text,
@@ -15,10 +14,7 @@ import {
   Heading,
   SimpleGrid,
   StackDivider,
-  useColorModeValue,
-  VisuallyHidden,
-  List,
-  ListItem,
+  useColorModeValue
 } from '@chakra-ui/react'
 import { MdLocalShipping } from 'react-icons/md'
 import { useParams } from 'react-router-dom';
@@ -27,7 +23,8 @@ import { useEffect, useState } from 'react';
 
 
 
-export default function Simple() {
+export default function ProductPage() {
+
 const [product, setProduct] = useState(null);
 const {id} = useParams();
   useEffect(() => {
@@ -43,11 +40,6 @@ const {id} = useParams();
   
     fetchProduct();
   }, []);
-  if(product != null){
-    console.log(product);
-  }
-
-
 
   return (
     <>
@@ -76,12 +68,6 @@ const {id} = useParams();
                 fontSize={{ base: '2xl', sm: '4xl', lg: '5xl' }}>
                   {product && product.product_name}
               </Heading>
-              <Text
-                color={useColorModeValue('gray.900', 'gray.400')}
-                fontWeight={300}
-                fontSize={'2xl'}>
-                {product && product.product_price} ₪
-              </Text>
             </Box>
 
             <Stack
@@ -98,19 +84,6 @@ const {id} = useParams();
                   {product && product.product_description}
                 </Text>
               </VStack>
-              <Box>
-                <Text
-                  fontSize={{ base: '16px', lg: '18px' }}
-                  color={useColorModeValue('yellow.500', 'yellow.300')}
-                  fontWeight={'500'}
-                  textTransform={'uppercase'}
-                  mb={'4'}>
-                  תצוגה מקדימה
-                </Text>
-                <audio controls src={EliadAudio}></audio>
-
-                
-              </Box>
             </Stack>
 
             <Button
@@ -126,13 +99,8 @@ const {id} = useParams();
                 transform: 'translateY(2px)',
                 boxShadow: 'lg',
               }}>
-              קנה עכשיו
+              השאר פרטים
             </Button>
-
-            <Stack direction="row" alignItems="center" justifyContent={'center'}>
-              <MdLocalShipping />
-              <Text>2-3 ימי עסקים</Text>
-            </Stack>
           </Stack>
         </SimpleGrid>
       </Container>

@@ -1,21 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import Header from '../../components/Header/HeaderBlack'
-import { Center, Card,CardBody,Flex, Image,Button,Text, Link} from '@chakra-ui/react'
-import img1 from '../../assets/productsImages/1.png'
-import img2 from '../../assets/productsImages/2.jpg'
+import { Center, Card,CardBody,Flex,Text, Link} from '@chakra-ui/react'
 import Footer from '../../components/Footer/Footer';
 import axios from 'axios'
 
 function Products() {
 
 const [products,setProducts] = useState([]);
-const [loading, setLoading] = useState(true);
 
 useEffect(() => {
   const fetchProducts = async () => {
-    setLoading(true);
     try {
-      // Replace 'YOUR_API_ENDPOINT' with the actual API endpoint for fetching products
       const response = await axios.get(import.meta.env.VITE_SERVER_URL + `/products/all`);
       console.log('Products:', response.data.products);
       setProducts(response.data.products);
@@ -26,11 +21,6 @@ useEffect(() => {
 
   fetchProducts();
 }, []);
-
-useEffect(()=>{
-  setLoading(false);
-  console.log("loaded");
-},[products])
 
 
   const heading = {
@@ -70,8 +60,6 @@ useEffect(()=>{
     <Center>
     <Text sx={heading} className='Heading'>מוצרי האולפן</Text>
     </Center>
-
-    {loading ? <Text fontSize={'5xl'}>loading...</Text> : null}
     
     <Flex gap="4" wrap="wrap" justify="center" paddingBottom={'10vh'}>
 

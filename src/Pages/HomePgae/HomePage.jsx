@@ -8,7 +8,8 @@ import Contact from './Contact';
 import Swiper from '../../components/Swiper/Swiper';
 import Footer from '../../components/Footer/Footer';
 import Show from '../../components/Show/Show';
-function HomePage() {
+import './homestyle.css';
+ function HomePage() {
   
   const themeColors = ['#fff','#0baaf0','#33FF7D','#FF4633'];
   let i = 0;
@@ -140,12 +141,6 @@ const CONFETTI_LIGHT = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 
 
       <IconButton zIndex={999} colorScheme='green' position={'fixed'} bottom={10} right={10} fontSize={'35px'} width={'50px'} height={'50px'} isRound={true} icon={<FaWhatsapp />} onClick={() => { window.location.href = 'https://api.whatsapp.com/send?phone=972526550676'; }} />
-      
-      
-      
-      
-      
-      
     </>
   )
 }
