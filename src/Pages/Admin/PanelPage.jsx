@@ -19,13 +19,14 @@ import {
   Input,
   Textarea,
   FormControl,
-  FormLabel 
+  FormLabel
 
 } from '@chakra-ui/react';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Products from './Products';
 import Articles from './Articles';
+import Contact from './Contact';
 
 export default function Simple() {
 
@@ -34,26 +35,26 @@ export default function Simple() {
     product_name: "",
     product_description: "",
     product_image: ""
-});
+  });
 
-const handleChange = (e) => {
+  const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-}
-const handleSubmit = (e) => {
+  }
+  const handleSubmit = (e) => {
     e.preventDefault()
-    
-    axios.post(import.meta.env.VITE_SERVER_URL+'/products/create', formData)
-    .then((response) => {
+
+    axios.post(import.meta.env.VITE_SERVER_URL + '/products/create', formData)
+      .then((response) => {
         console.log(response.data);
         // handle success
         location.reload();
-    })
-    .catch((error) => {
+      })
+      .catch((error) => {
         console.log(error);
         // handle error
-    });
-    
-}
+      });
+
+  }
 
   const heading = {
     fontSize: '60px',
@@ -78,11 +79,15 @@ const handleSubmit = (e) => {
 
       <Tabs variant='soft-rounded' colorScheme='blue'>
         <TabList>
+          <Tab width={'25%'}>צור קשר</Tab>
           <Tab width={'25%'}>מוצרים</Tab>
           <Tab width={'25%'}>מאמרים</Tab>
-          <Tab width={'25%'}>Three</Tab>
         </TabList>
         <TabPanels>
+          <TabPanel>
+            {/* צור קשר */}
+            <Contact/>
+          </TabPanel>
           <TabPanel>
             {/* מוצרים */}
             <Button colorScheme={'blue'} onClick={() => onOpen()}>הוסף מוצר +</Button>
@@ -111,8 +116,8 @@ const handleSubmit = (e) => {
                       <FormLabel fontWeight={'bold'}>פירוט המוצר:</FormLabel>
                       <Textarea value={formData.product_description}
                         onChange={handleChange}
-                        name='product_description'/>
-                    </FormControl> 
+                        name='product_description' />
+                    </FormControl>
 
                     <Divider margin={2} />
 
@@ -120,7 +125,7 @@ const handleSubmit = (e) => {
                       <FormLabel fontWeight={'bold'}>תמונת המוצר:</FormLabel>
                       <Input value={formData.product_image}
                         onChange={handleChange}
-                        name='product_image'/>
+                        name='product_image' />
                     </FormControl>
                     <Button type='submit' m={4} colorScheme='blue'>צור מוצר</Button>
                   </form>
@@ -132,12 +137,9 @@ const handleSubmit = (e) => {
           </TabPanel>
           <TabPanel>
             {/* מאמרים */}
-            
-            <Articles/>
 
-          </TabPanel>
-          <TabPanel>
-            <p>three!</p>
+            <Articles />
+
           </TabPanel>
         </TabPanels>
       </Tabs>
