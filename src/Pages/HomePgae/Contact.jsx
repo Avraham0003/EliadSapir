@@ -1,5 +1,3 @@
-'use client'
-
 import {
   Box,
   Button,
@@ -11,15 +9,17 @@ import {
   InputGroup,
   InputRightElement,
   Text,
-  Select,
+  Menu,
+  MenuItem,
+  MenuList,
+  MenuButton,
   VStack,
   SimpleGrid,
 
-
 } from '@chakra-ui/react'
-import { BsInstagram, BsTiktok, BsPerson, BsFacebook, BsWhatsapp } from 'react-icons/bs'
-import { MdOutlineEmail } from 'react-icons/md'
-
+import axios from 'axios'
+import { useState } from 'react'
+import { BsInstagram, BsTiktok, BsPerson, BsFacebook, BsWhatsapp, BsPhone,BsCaretDown,BsBookmarkCheck  } from 'react-icons/bs'
 
 const SocialButton = {
   color: 'white',
@@ -32,6 +32,51 @@ const SocialButton = {
 }
 export default function Contact(props) {
 
+
+
+  const [finished, setFinished] = useState(false);
+  const [select, setSelect] = useState('אחר');
+  const [err, setErr] = useState(false);
+
+  const [formData,setFormData] = useState({
+    name: "",
+    phone: "",
+    category: select,
+  }) 
+
+  
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  }
+
+const handleChangeButton = (value) =>{
+  setSelect(value);
+  setFormData({ ...formData, category: value });
+
+}
+
+  const sendForm = async() =>{
+
+      await axios.post(import.meta.env.VITE_SERVER_URL + '/contact/create/', formData)
+      .then((response) => {
+        console.log(response.data);
+        setErr('');
+        // handle success
+        setFinished(true);
+      })
+      .catch((error) => {
+        setErr(true);
+        console.log(error);
+        // handle error
+      });
+
+      
+  } 
+
+
+
+
+
   return (
     <>
       <Text sx={props.heading1} textAlign={'center'} color={props.Tcolor} className='Heading'>נהיה בקשר</Text>
@@ -42,52 +87,62 @@ export default function Contact(props) {
           borderRadius="lg"
           py={8}
           px={[15, 15, 15, 150]}
-          width={['90%', '80%','70%','60%','40%']}
-          color={'whiteAlpha.900'}
-          shadow="base">
+          width={['90%', '80%', '70%', '60%', '40%']}
+        >
           <VStack spacing={5}>
             <FormControl isRequired>
-              <FormLabel>שם:</FormLabel>
+              <FormLabel color={'white'}>שם:</FormLabel>
 
               <InputGroup>
                 <InputRightElement>
-                  <BsPerson />
+                  <BsPerson color='white' />
                 </InputRightElement>
-                <Input type="text" name="name" placeholder="השם שלך" paddingLeft={0} paddingRight={8} />
+                <Input value={formData.name}
+                        onChange={handleChange} color={'white'} type="text" name="name" placeholder="השם שלך" paddingLeft={0} paddingRight={8} />
               </InputGroup>
             </FormControl>
 
             <FormControl isRequired>
-              <FormLabel>מייל:</FormLabel>
+              <FormLabel color={'white'}>טלפון:</FormLabel>
 
               <InputGroup>
                 <InputRightElement>
-                  <MdOutlineEmail />
+                  <BsPhone color='white' />
                 </InputRightElement>
-                <Input type="email" name="email" placeholder="המייל שלך" paddingLeft={0} paddingRight={8} />
+                <Input value={formData.phone}
+                        onChange={handleChange}
+                        name='phone' color={'white'} type="number" placeholder="הטלפון שלך" paddingLeft={0} paddingRight={8} />
               </InputGroup>
             </FormControl>
 
             <FormControl id="category" isRequired>
-              <FormLabel>תחום הפנייה:</FormLabel>
-              <Select dir="rtl">
-                <option value="1">מחלקת אמנים</option>
-                <option value="2">מחלקת אירועים</option>
-                <option value="3">מחלקת עסקים</option>
-                <option value="4">אחר</option>
-                =                           </Select>
+              <FormLabel color={'white'}>תחום הפנייה:</FormLabel>
+              <Menu dir='rtl'>
+                <MenuButton as={Button} rightIcon={<BsCaretDown/>} bg={'none'} color={'white'} border={'1px solid white'} _hover={'yellow'} width='100%'>
+                  {select}
+                </MenuButton>
+                <MenuList dir='rtl'>
+                  <MenuItem onClick={()=>handleChangeButton('מחלקת אמנים')}>מחלקת אמנים</MenuItem>
+                  <MenuItem onClick={()=>handleChangeButton('מחלקת אירועים')}>מחלקת אירועים</MenuItem>
+                  <MenuItem onClick={()=>handleChangeButton('מחלקת עסקים')}>מחלקת עסקים</MenuItem>
+                  <MenuItem onClick={()=>handleChangeButton('אחר')}>אחר</MenuItem>
+                </MenuList>
+              </Menu>
             </FormControl>
 
-            <Button
+            {!finished && <Button
               colorScheme="blue"
               bg={props.Tcolor}
               color="white"
               _hover={{
                 bg: '#0D00FF'
               }}
+              onClick={()=>sendForm()}
               width="full">
               תחזרו אליי!
-            </Button>
+            </Button>}
+            {finished && <Box fontSize={'5xl'} color={'green'} ><BsBookmarkCheck /></Box> }
+            {err && <Box color={'red'}>אנא מלא את כל הפרטים!</Box>}
           </VStack>
         </Box>
       </Center>

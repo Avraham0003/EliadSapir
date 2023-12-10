@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Tbody, Th, Tr, Td, Thead, Table, TableContainer, Button, useDisclosure, Modal, ModalBody, ModalContent, ModalCloseButton, ModalHeader, ModalOverlay, Box, Text } from '@chakra-ui/react'
+import {Badge,Link,Tbody, Th, Tr, Td, Thead, Table, TableContainer, Button, useDisclosure, Modal, ModalBody, ModalContent, ModalCloseButton, ModalHeader, ModalOverlay, Box, Image } from '@chakra-ui/react'
 import axios from 'axios'
 import { BsEyeFill, BsFillTrashFill, BsWhatsapp,BsFillTelephoneFill   } from "react-icons/bs";
 
@@ -10,6 +10,17 @@ function Contact() {
     const [contacts, setContacts] = useState([]);
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [modalItem, setModalItem] = useState({ user_name: "", user_phone: "", user_reason: "", checked: false});
+
+
+    const toggleChecked = async(_id,to) =>{
+        await axios.post(import.meta.env.VITE_SERVER_URL+'/contact/toggle_checked',{contact_id: _id,change_to: to})
+        .then(() => {
+            location.reload();
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+    }
 
     const heading = {
         fontSize: '30px',
@@ -64,8 +75,12 @@ function Contact() {
                     <ModalHeader></ModalHeader>
                     <ModalBody dir="rtl">
 
-                        <Box>
-                           
+                        <Box fontSize={'xl'}>
+                            שם: <Box fontSize={'2xl'} fontWeight={'bold'}>{modalItem.user_name}</Box>
+                            <br />
+                            טלפון: <Box fontSize={'2xl'} fontWeight={'bold'}>{modalItem.user_phone}</Box>
+                            <br />
+                            סיבת הפניה: <Box fontSize={'2xl'} fontWeight={'bold'}>{modalItem.user_reason}</Box>
                         </Box>
 
                     </ModalBody>
@@ -80,25 +95,25 @@ function Contact() {
                             <Th>שם</Th>
                             <Th>טלפון</Th>
                             <Th>סיבת הפניה</Th>
-                            <Th></Th>
+                            <Th>מצב הפניה</Th>
                             <Th>פעולות</Th>
                         </Tr>
                     </Thead>
                     <Tbody>
                         {contacts && contacts.map((item) => (
                             <Tr key={item._id}>
-                                <Td>{item.user_name}</Td>
-                                <Td>{item.user_phone}</Td>
-                                <Td>{item.user_reason}</Td>
+                                <Td>{item.name}</Td>
+                                <Td>{item.phone}</Td>
+                                <Td>{item.category}</Td>
                                 <Td>
-                                    {!item.checked && "false"}
-                                    {item.checked && "true"}
+                                    {!item.checked &&   <Badge cursor={'pointer'} onClick={()=>toggleChecked(item._id, true)} colorScheme='red' padding={2} fontSize={'xl'}>ממתין</Badge>}
+                                    {item.checked && <Badge cursor={'pointer'} onClick={()=>toggleChecked(item._id, false)} colorScheme='green' padding={2} fontSize={'xl'}>טופל</Badge>}
                                 </Td>
                                 <Td>
-                                    <Button colorScheme='green'><BsWhatsapp /></Button>
-                                    <Button colorScheme='blue'><BsFillTelephoneFill  /></Button>
-                                    <Button onClick={() => showContact(item.user_name, item.user_phone, item.user_reason, checked)}><BsEyeFill /></Button>
-                                    <Button colorScheme='red' onClick={() => deleteContact(item._id)}><BsFillTrashFill /></Button>
+                                    <Button m={1} colorScheme='green'><Link target="_blank" href={'http://wa.me/+972'+item.phone} ><BsWhatsapp /></Link></Button>
+                                    <Button m={1} colorScheme='blue'><Link href={'tel:+972'+item.phone}><BsFillTelephoneFill  /></Link></Button>
+                                    <Button m={1} onClick={() => showContact(item.name, item.phone, item.category, item.checked)}><BsEyeFill /></Button>
+                                    <Button m={1} colorScheme='red' onClick={() => deleteContact(item._id)}><BsFillTrashFill /></Button>
                                 </Td>
                             </Tr>
                         ))}
