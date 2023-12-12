@@ -8,34 +8,6 @@ function AuthProvider({ children }) {
   const [cookies, setCookie, removeCookie] = useCookies(["token"]);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  useEffect(() => {
-    if (cookies.token) {
-      const authUser = async () => {
-        try {
-          const response = await axios.get(
-            import.meta.env.VITE_SERVER_URL + `/admin/auth`,
-            {
-              headers: {
-                Authorization: cookies.token,
-              }
-            }
-          );
-          const data = await response.data;
-
-          if (!data.success) {
-            removeCookie("token");
-            throw new Error(`${data.message} : ${data.error}`);
-          }
-          setIsAuthenticated(true);
-        } catch (error) {
-          setIsAuthenticated(false);
-          }
-      };
-
-      authUser();
-    }
-  }, [cookies]);
-
   const login = async (password) => {
     try {
       const response = await axios.post(

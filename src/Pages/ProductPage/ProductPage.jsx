@@ -1,7 +1,4 @@
 import Header from '../../components/Header/HeaderBlack'
-import img1 from '../../assets/productsImages/1.png'
-import EliadAudio from '../../assets/EliadAudio.mp3';
-
 import {
   Box,
   Container,
@@ -16,7 +13,6 @@ import {
   StackDivider,
   useColorModeValue
 } from '@chakra-ui/react'
-import { MdLocalShipping } from 'react-icons/md'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
@@ -31,7 +27,6 @@ const {id} = useParams();
     const fetchProduct = async () => {      try {
         // Replace 'YOUR_API_ENDPOINT' with the actual API endpoint for fetching products
         const response = await axios.get(import.meta.env.VITE_SERVER_URL + `/products/get_by_id/`+id);
-        console.log('Product:', response.data.product);
         setProduct(response.data.product);
       } catch (error) {
         console.error('Error fetching products:', error);
@@ -53,7 +48,7 @@ const {id} = useParams();
             <Image
               rounded={'md'}
               alt={'product image'}
-              src={img1}
+              src={product&& product.product_image}
               fit={'cover'}
               align={'center'}
               w={'100%'}

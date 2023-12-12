@@ -8,53 +8,19 @@ import {
   TabPanels,
   TabPanel,
   Tab,
-  TabList,
-  ModalBody,
-  ModalCloseButton,
-  ModalHeader,
-  ModalContent,
-  ModalOverlay,
-  Modal,
-  useDisclosure,
-  Input,
-  Textarea,
-  FormControl,
-  FormLabel
-
+  TabList
 } from '@chakra-ui/react';
-import axios from 'axios';
-import { useState } from 'react';
 import Products from './Products';
 import Articles from './Articles';
 import Contact from './Contact';
+import Projects from './Projects';
+
+import AddProduct from './AddProduct';
+import AddArticle from './AddArticle';
+import AddProject from './AddProject';
 
 export default function Simple() {
 
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const [formData, setFormData] = useState({
-    product_name: "",
-    product_description: "",
-    product_image: ""
-  });
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  }
-  const handleSubmit = (e) => {
-    e.preventDefault()
-
-    axios.post(import.meta.env.VITE_SERVER_URL + '/products/create', formData)
-      .then((response) => {
-        console.log(response.data);
-        // handle success
-        location.reload();
-      })
-      .catch((error) => {
-        console.log(error);
-        // handle error
-      });
-
-  }
 
   const heading = {
     fontSize: '60px',
@@ -82,65 +48,32 @@ export default function Simple() {
           <Tab width={'25%'}>צור קשר</Tab>
           <Tab width={'25%'}>מוצרים</Tab>
           <Tab width={'25%'}>מאמרים</Tab>
+          <Tab width={'25%'}>פרוייקטים</Tab>
         </TabList>
         <TabPanels>
           <TabPanel>
             {/* צור קשר */}
             <Contact/>
           </TabPanel>
+
           <TabPanel>
             {/* מוצרים */}
-            <Button colorScheme={'blue'} onClick={() => onOpen()}>הוסף מוצר +</Button>
-            <Modal isCentered isOpen={isOpen} onClose={onClose}>
-              <ModalOverlay
-                bg='blackAlpha.300'
-                backdropFilter='blur(10px) hue-rotate(90deg)'
-              />
-              <ModalContent>
-                <ModalHeader>הוספת מוצר</ModalHeader>
-                <ModalCloseButton />
-                <ModalBody>
-
-                  <form onSubmit={handleSubmit} dir='rtl'>
-                    <FormControl isRequired >
-                      <FormLabel fontWeight={'bold'}>שם המוצר:</FormLabel>
-                      <Input value={formData.product_name}
-                        onChange={handleChange}
-                        name='product_name'
-                        placeholder='שם המוצר' />
-                    </FormControl>
-
-                    <Divider margin={2} />
-
-                    <FormControl isRequired>
-                      <FormLabel fontWeight={'bold'}>פירוט המוצר:</FormLabel>
-                      <Textarea value={formData.product_description}
-                        onChange={handleChange}
-                        name='product_description' />
-                    </FormControl>
-
-                    <Divider margin={2} />
-
-                    <FormControl isRequired>
-                      <FormLabel fontWeight={'bold'}>תמונת המוצר:</FormLabel>
-                      <Input value={formData.product_image}
-                        onChange={handleChange}
-                        name='product_image' />
-                    </FormControl>
-                    <Button type='submit' m={4} colorScheme='blue'>צור מוצר</Button>
-                  </form>
-
-                </ModalBody>
-              </ModalContent>
-            </Modal>
+            <AddProduct/>
             <Products />
           </TabPanel>
+
           <TabPanel>
             {/* מאמרים */}
-
+            <AddArticle/>
             <Articles />
-
           </TabPanel>
+
+          <TabPanel>
+            {/* פרויקטים */}
+           <AddProject/>
+            <Projects />
+          </TabPanel>
+        
         </TabPanels>
       </Tabs>
 
