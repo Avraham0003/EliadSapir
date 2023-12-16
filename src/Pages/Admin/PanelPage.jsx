@@ -1,8 +1,6 @@
 import Header from '../../components/Header/HeaderForAdmin'
 import {
-  Box,
   Text,
-  Button,
   Divider,
   Tabs,
   TabPanels,

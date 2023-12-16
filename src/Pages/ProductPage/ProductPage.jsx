@@ -76,7 +76,7 @@ const {id} = useParams();
                   color={useColorModeValue('gray.500', 'gray.400')}
                   fontSize={'2xl'}
                   fontWeight={'300'}>
-                  {product && product.product_description}
+                  {product && <Box dangerouslySetInnerHTML={{ __html: product.product_description }} />}
                 </Text>
               </VStack>
             </Stack>
