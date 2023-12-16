@@ -23,7 +23,7 @@ export default function AddProduct() {
   const [formData, setFormData] = useState({
     product_name: '',
     product_description: '',
-    product_image: '',
+    product_image: ''
   });
 
   const handleChange = (name, value) => {

@@ -164,8 +164,7 @@ function Products() {
                                         <Image maxW={'70px'} src={item.product_image} borderRadius='lg' />
                                     </Td>
                                     <Td>{item.product_name}</Td>
-                                    <Td><Box dangerouslySetInnerHTML={{ __html: item.product_description.substring(0, 50) + '...' }} />
-                                    </Td>
+                                    <Td><Box dangerouslySetInnerHTML={{ __html: item.product_description.substring(0, 50) + '...' }} /></Td>
                                     <Td>
                                         <Button m={1} colorScheme='green' onClick={() => updateProduct(item._id, item.product_name, item.product_description, item.product_image)}>
                                             <BsFillPencilFill />

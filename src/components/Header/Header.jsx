@@ -81,7 +81,7 @@ function Header(props) {
 
               <Button sx={headerButtons} transition={'0.8s'} bg={props.Tcolor}><Link href={'/products'}>מוצרי האולפן</Link></Button>
               <Button sx={headerButtons} transition={'0.8s'} bg={props.Tcolor}><Link href={'/articles'}>מאמרי מידע</Link></Button>
-              <Button sx={headerButtons}>פרוייקטים שעשיתי</Button>
+              <Button sx={headerButtons} transition={'0.8s'} bg={props.Tcolor}><Link href={'/projects'}>פרוייקטים שעשיתי</Link></Button>
               
             </DrawerBody>
           </DrawerContent>

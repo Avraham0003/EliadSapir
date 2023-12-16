@@ -6,6 +6,8 @@ import Articles from "./Pages/Articles/Articles";
 import ArticlePage from './Pages/ArticlePage/ArticlePage'
 import LoginPage from './Pages/Admin/LoginPage'
 import PanelPage from './Pages/Admin/PanelPage'
+import Projects from "./Pages/Projects/Projects";
+import ProjectPage from "./Pages/ProjectPage/ProjectPage";
 
 function App() {
 
@@ -20,6 +22,10 @@ function App() {
 
           <Route path="/articles" element={<Articles/>} />
           <Route path="/article/:id" element={<ArticlePage/>} />
+
+          <Route path="/projects" element={<Projects/>} />
+          <Route path="/project/:id" element={<ProjectPage/>} />
+
           
           <Route path="/admin" element={<LoginPage/>} />
           <Route path="/admin/panel" element={<PanelPage/>} />
