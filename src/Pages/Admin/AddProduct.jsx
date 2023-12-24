@@ -12,6 +12,7 @@ import {
   ModalCloseButton,
   ModalHeader,
   ModalOverlay,
+  Link
 } from '@chakra-ui/react';
 import axios from 'axios';
 import ReactQuill from 'react-quill';
@@ -82,7 +83,7 @@ export default function AddProduct() {
               <Divider margin={2} />
 
               <FormControl isRequired>
-                <FormLabel fontWeight={'bold'}>תמונת המוצר:</FormLabel>
+                <FormLabel fontWeight={'bold'}>תמונת המוצר:</FormLabel> <Button m={2}><Link href="https://postimages.org" isExternal>העלה תמונה</Link></Button>
                 <Input
                   value={formData.product_image}
                   onChange={(e) => handleChange('product_image', e.target.value)}

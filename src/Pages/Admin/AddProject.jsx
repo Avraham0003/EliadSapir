@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Divider, Input, FormLabel, FormControl, Button, useDisclosure, Modal, ModalBody, ModalContent, ModalCloseButton, ModalHeader, ModalOverlay } from '@chakra-ui/react'
+import { Divider, Input, FormLabel, FormControl, Button, useDisclosure, Modal, ModalBody, ModalContent, ModalCloseButton, ModalHeader, ModalOverlay, Link } from '@chakra-ui/react'
 import axios from 'axios';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // Import the styles
@@ -74,7 +74,7 @@ export default function AddProject() {
               <Divider margin={2} />
 
               <FormControl isRequired>
-                <FormLabel fontWeight={'bold'}>תמונת הפרויקט:</FormLabel>
+                <FormLabel fontWeight={'bold'}>תמונת הפרויקט:</FormLabel> <Button m={2}><Link href="https://postimages.org" isExternal>העלה תמונה</Link></Button>
                 <Input value={formData.project_photo}
                   onChange={(e) => handleChange('project_photo', e.target.value)}
                   name='project_photo' />

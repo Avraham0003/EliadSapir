@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Divider, Textarea, Input, FormLabel, FormControl, Button, useDisclosure, Modal, ModalBody, ModalContent, ModalCloseButton, ModalHeader, ModalOverlay } from '@chakra-ui/react'
+import { Divider, Textarea, Input, FormLabel, FormControl, Button, useDisclosure, Modal, ModalBody, ModalContent, ModalCloseButton, ModalHeader, ModalOverlay, Link } from '@chakra-ui/react'
 import axios from 'axios';
 
 import ReactQuill from 'react-quill';
@@ -75,7 +75,7 @@ export default function AddArticle() {
               <Divider margin={2} />
 
               <FormControl isRequired>
-                <FormLabel fontWeight={'bold'}>תמונת המאמר:</FormLabel>
+                <FormLabel fontWeight={'bold'}>תמונת המאמר:</FormLabel> <Button m={2}><Link href="https://postimages.org" isExternal>העלה תמונה</Link></Button>
                 <Input value={formData.article_photo}
                   onChange={handleChange}
                   name='article_photo' />

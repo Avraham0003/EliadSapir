@@ -1,9 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Image } from '@chakra-ui/react';
 // Import Swiper React components
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 
 // Import Swiper styles
 import 'swiper/css';
@@ -26,13 +25,26 @@ import img10 from './recommends/10.jpg';
 const img_style = {
    width : '100%',
 }
+
+
 export default () => {
+  
+    const [matches, setMatches] = useState(
+      window.matchMedia("(min-width: 768px)").matches
+    )
+  
+    useEffect(() => {
+      window
+      .matchMedia("(min-width: 768px)")
+      .addEventListener('change', e => setMatches( e.matches ));
+    }, []);
+
   return (
     <Swiper
       // install Swiper modules
       modules={[Navigation, Pagination]}
       spaceBetween={1}
-      slidesPerView={3}
+      slidesPerView={matches && 5 || 2}
       navigation
       pagination={{ clickable: true }}
       onSwiper={(swiper) => console.log(swiper)}

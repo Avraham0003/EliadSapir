@@ -72,7 +72,21 @@ const handleChangeButton = (value) =>{
 
       
   } 
-
+  const SocialButton = {
+    borderRadius: 'full',
+    fontSize: 'md',
+    fontWeight: 'bold',
+    width: '100%',
+    py: 4,
+    transition: 'all 0.2s',
+    _hover: {
+      transform: 'scale(1.05)',
+    },
+  };
+  
+  const SocialIcons = {
+    marginRight: 2,
+  };
 
 
 
@@ -111,7 +125,7 @@ const handleChangeButton = (value) =>{
                 </InputRightElement>
                 <Input value={formData.phone}
                         onChange={handleChange}
-                        name='phone' color={'white'} type="number" placeholder="הטלפון שלך" paddingLeft={0} paddingRight={8} />
+                        name='phone' color={'white'} type="number" placeholder="הטלפון שלך" paddingLeft={0} paddingRight={8}  pattern="^\+(?:[0-9] ?){6,14}[0-9]$" />
               </InputGroup>
             </FormControl>
 
@@ -133,13 +147,13 @@ const handleChangeButton = (value) =>{
             {!finished && <Button
               colorScheme="blue"
               bg={props.Tcolor}
-              color="white"
+              color={props.Tcolor === "#fff" ? "black" : "white"}
               _hover={{
                 bg: '#0D00FF'
               }}
               onClick={()=>sendForm()}
-              width="full">
-              תחזרו אליי!
+              width="80%">
+              תחזרו אליי !
             </Button>}
             {finished && <Box fontSize={'5xl'} color={'green'} ><BsBookmarkCheck /></Box> }
             {err && <Box color={'red'}>אנא מלא את כל הפרטים!</Box>}
@@ -149,16 +163,23 @@ const handleChangeButton = (value) =>{
 
 
 
-      <SimpleGrid columns={{ base: 1, md: 4 }} spacing={{ base: 0, lg: 0 }} padding={2}>
-        <Button sx={SocialButton} bg={'green.400'}> WhatsApp &nbsp;<Icon as={BsWhatsapp} /></Button>
+      <SimpleGrid columns={{ base: 1, md: 4 }} spacing={{ base: 4, lg: 4 }} padding={4}>
+      <Button sx={SocialButton} bg={'green.400'}>
+         WhatsApp <Icon as={BsWhatsapp} sx={SocialIcons} />
+      </Button>
 
-        <Button sx={SocialButton} colorScheme='facebook'>Facebook &nbsp;<Icon as={BsFacebook} /></Button>
+      <Button sx={SocialButton} colorScheme='facebook'>
+         Facebook <Icon as={BsFacebook} sx={SocialIcons} />
+      </Button>
 
-        <Button sx={SocialButton} bg={'#8134AF'}>instagram &nbsp;<Icon as={BsInstagram} /></Button>
+      <Button sx={SocialButton} bg={'#8134AF'}>
+         Instagram <Icon as={BsInstagram} sx={SocialIcons} />
+      </Button>
 
-        <Button sx={SocialButton} bg={'#EE1D52'}>Tiktok &nbsp;<Icon as={BsTiktok} /></Button>
-
-      </SimpleGrid>
+      <Button sx={SocialButton} bg={'#EE1D52'}>
+         Tiktok <Icon as={BsTiktok} sx={SocialIcons} />
+      </Button>
+    </SimpleGrid>
     </>
   )
 }

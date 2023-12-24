@@ -76,7 +76,9 @@ function Products() {
             </CardBody>
             <CardFooter>
               <Button variant='solid' colorScheme='blue'>
+                <Link href={`./product/${item._id}`}>
                 פרטים נוספים
+                </Link>
               </Button>
             </CardFooter>
           </Card>

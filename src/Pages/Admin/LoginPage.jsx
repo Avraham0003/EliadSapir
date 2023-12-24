@@ -35,7 +35,7 @@ export default function LoginPage() {
       if (!response.success) {
         throw new Error(response.message);
       }
-      navigate("./panel");
+      navigate("../admin/panel");
 
     } catch (error) {
      alert(error.message);
