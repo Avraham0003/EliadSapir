@@ -28,7 +28,8 @@ import {
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { BsBookmarkCheck } from 'react-icons/bs';
+import { BsBookmarkCheck, BsEnvelope } from 'react-icons/bs';
+
 
 
 
@@ -85,17 +86,19 @@ const {id} = useParams();
     <>
     <Header/>
 
-    <Modal isCentered isOpen={isOpen} onClose={onClose}>
+    <Modal isCentered isOpen={isOpen} onClose={onClose} size={'xl'}>
         <ModalOverlay
           bg='blackAlpha.300'
           backdropFilter='blur(10px) hue-rotate(90deg)'
         />
         <ModalContent>
-          <ModalHeader><Center>השארת פרטים</Center></ModalHeader>
           <ModalCloseButton />
           <ModalBody>
 
             <form dir='rtl'>
+              <Center fontSize={'35px'} className='Heading'>
+              השארת פרטים&#10240;<BsEnvelope/>          
+                </Center>
               <FormControl isRequired >
                 <FormLabel fontWeight={'bold'}>שם מלא:</FormLabel>
                 <Input value={formData.name}
@@ -116,7 +119,7 @@ const {id} = useParams();
               </FormControl>
 
               {!finished && <Center m={2} marginTop={7} ><Button colorScheme='blue' width={'100%'} onClick={()=>sendForm()}>שלח</Button></Center>}
-            {finished && <Box fontSize={'5xl'} color={'green'} ><BsBookmarkCheck /></Box> }
+            {finished && <Center m={10} fontSize={'5xl'} color={'green'} ><BsBookmarkCheck /></Center> }
 
             </form>
 
@@ -124,7 +127,7 @@ const {id} = useParams();
         </ModalContent>
       </Modal>
 
-      <Container maxW={'7xl'}>
+      <Container maxW={'8xl'} bg={'rgba(0,0,0,0.02)'} padding={10}>
         <SimpleGrid
           columns={{ base: 1, lg: 2 }}
           spacing={{ base: 8, md: 10 }}

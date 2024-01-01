@@ -59,6 +59,22 @@ function HomePage() {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+  const wabutton1 = {
+    zIndex: 999,
+     bg:'green.400',
+     color:'white',
+      position:'fixed',
+       bottom:10,
+        right:10,
+         fontSize: '35px',
+          width: '50px',
+           height: '50px',
+
+
+    _hover: {
+      transform: 'scale(1.15)',
+    },
+  }
 
   return (
     <>
@@ -82,7 +98,9 @@ function HomePage() {
             <br />
             ציוד צילום, הקלטה והפקה ברמה הכי גבוהה שיש.
           </Text>
-          <Button fontSize={'xl'} onClick={() => { handleClickScroll() }} variant='outline' transition={'0.8s'} borderColor={Tcolor} color={Tcolor}>צור קשר &nbsp;<FaComments /></Button>
+          <Button fontSize={'xl'} onClick={() => { handleClickScroll() }} variant='outline' transition={'0.3s'} borderColor={Tcolor} color={Tcolor} _hover={{
+                transform: 'scale(1.05)',
+              }}>צור קשר &nbsp;<FaComments /></Button>
         </Box>
         <Spacer />
         <Image src={eliad} alt='eliad sapir photo' width={['100%', '50%', '30%']} marginTop={200} position={['absolute', 'absolute', 'relative']} zIndex={0} />
@@ -129,6 +147,13 @@ function HomePage() {
           <Image src={eliad2} alt='eliad sapir photo' width={['100%', '50%', '30%']} marginTop={[320, 200]} position={['absolute', 'absolute', 'relative']} zIndex={0} filter={['brightness(0.70)', 'brightness(0.70)', 'brightness(1)']} />
         </Flex>
 
+        <Box marginY={[10]} bgGradient='linear(to-l,  #0b0708,#10171f)' >
+        <Text sx={heading1} color={Tcolor} py={10} textAlign={'center'} className='Heading'>
+          פרוייקט אחרון
+        </Text>
+        <Box width={'90%'} bg={'rgba(0,0,0,0.9'}>1231231321</Box>
+        </Box>
+
         <Text sx={heading1} color={Tcolor} textAlign={'center'} className='Heading'>
           לקוחות ממליצים
         </Text>
@@ -140,7 +165,7 @@ function HomePage() {
 
 
 
-      <IconButton zIndex={999} colorScheme='green' position={'fixed'} bottom={10} right={10} fontSize={'35px'} width={'50px'} height={'50px'} isRound={true} icon={<FaWhatsapp />} onClick={() => { window.location.href = 'https://api.whatsapp.com/send?phone=972526550676'; }} />
+      <IconButton sx={wabutton1} isRound={true} icon={<FaWhatsapp />} onClick={() => { window.location.href = 'https://api.whatsapp.com/send?phone=972526550676'; }} />
     </>
   )
 }

@@ -38,7 +38,7 @@ const {id} = useParams();
   return (
     <>
     <Header/>
-      <Container maxW={'7xl'}>
+      <Container maxW={'7xl'} bg={'rgba(0,0,0,0.02)'}>
         <SimpleGrid
           columns={{ base: 1, lg: 2 }}
           spacing={{ base: 8, md: 10 }}

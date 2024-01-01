@@ -82,6 +82,7 @@ const handleChangeButton = (value) =>{
     _hover: {
       transform: 'scale(1.05)',
     },
+     color: 'white',
   };
   
   const SocialIcons = {
@@ -149,7 +150,7 @@ const handleChangeButton = (value) =>{
               bg={props.Tcolor}
               color={props.Tcolor === "#fff" ? "black" : "white"}
               _hover={{
-                bg: '#0D00FF'
+                transform: 'scale(1.05)',
               }}
               onClick={()=>sendForm()}
               width="80%">

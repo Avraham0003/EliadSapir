@@ -28,7 +28,7 @@ function Footer() {
           <Image src={logo} alt='logo' width={['150px', '200px', '250px']} />
         </Flex>
         <Text pt={6} fontSize={'sm'} color={'white'} textAlign={'center'}>
-          © 2023 כל הזכויות שמורות
+          © 2024 כל הזכויות שמורות
         </Text>
       </Box>
     </>

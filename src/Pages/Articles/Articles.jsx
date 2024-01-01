@@ -47,11 +47,7 @@ export default function Articles() {
     <>
       <Header />
       <Text sx={heading} className='Heading'>מאמרי מידע</Text>
-      <Divider />
-
-
       <Container maxW={'7xl'} p="5">
-
 
       {articles && articles.map((item) => (
         <>

@@ -50,14 +50,13 @@ function HeaderBlack() {
   return (
     <>
       <Box sx={header_style} dir='ltr'>
-        {!isOpen &&
-          <Flex align="center" justify="space-between" >
+          <Flex align="center" justify="space-between" filter={isOpen && 'blur(6px)'}>
             <Box>
               <Link href='/'><Image src={logo} alt='logo' width={['150px', '200px', '250px']} cursor={'pointer'} /></Link>
             </Box>
             <Box onClick={onOpen} sx={menu_button_style} ><Menu /></Box>
           </Flex>
-        }
+
       </Box>
 
       <Drawer

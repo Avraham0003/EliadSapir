@@ -1,7 +1,4 @@
 import Header from '../../components/Header/HeaderBlack'
-import img1 from '../../assets/productsImages/1.png'
-import EliadAudio from '../../assets/EliadAudio.mp3';
-
 import {
   Box,
   Text,
@@ -11,7 +8,6 @@ import {
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import Footer from '../../components/Footer/Footer'
 
 export default function Simple() {
 
@@ -44,9 +40,10 @@ export default function Simple() {
     <>
       <Header />
 
-      <Box bg={'rgba(0,0,0,0.1)'} padding={'2%'} margin={'auto'} width={'50%'} borderRadius={'lg'}>
+      <Box bg={'rgba(0,0,0,0.02)'} padding={'2%'} margin={'auto'} width={'80%'} borderRadius={'lg'}>
         <Center>
           <Image
+          maxH={'70vh'}
             width={'80%'}
             borderRadius="lg"
             src={article && article.article_photo}
@@ -59,10 +56,6 @@ export default function Simple() {
           {article && <Box dangerouslySetInnerHTML={{ __html: article.article_description}} />}
         </Center>
       </Box>
-      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-      <Footer />
-
-
 
     </>
   )
