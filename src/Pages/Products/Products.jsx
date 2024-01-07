@@ -39,6 +39,12 @@ function Products() {
     <>
       <Header />
 
+        <Center>
+          <Text sx={heading} className='Heading'>
+            מוצרי האולפן
+          </Text>
+        </Center>
+
       <Box
         style={{
           backgroundImage: `url("data:image/svg+xml;utf8,${encodeURIComponent(svgCode)}")`,
@@ -49,12 +55,6 @@ function Products() {
           marginBottom: 10
         }}
       >
-        <Center>
-          <Text sx={heading} className='Heading'>
-            מוצרי האולפן
-          </Text>
-        </Center>
-
         <Flex gap="4" wrap="wrap" justify="center" paddingBottom={'10vh'}>
           {products &&
             products.map((item) => (
