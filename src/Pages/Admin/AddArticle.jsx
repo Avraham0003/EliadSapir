@@ -55,7 +55,7 @@ export default function AddArticle() {
               <FormControl isRequired >
                 <FormLabel fontWeight={'bold'}>שם המאמר:</FormLabel>
                 <Input value={formData.article_name}
-                  onChange={handleChange}
+                  onChange={(e) => handleChange('article_name', e.target.value)}
                   name='article_name'
                   placeholder='שם המאמר' />
               </FormControl>
@@ -77,7 +77,7 @@ export default function AddArticle() {
               <FormControl isRequired>
                 <FormLabel fontWeight={'bold'}>תמונת המאמר:</FormLabel> <Button m={2}><Link href="https://postimages.org" isExternal>העלה תמונה</Link></Button>
                 <Input value={formData.article_photo}
-                  onChange={handleChange}
+                  onChange={(e) => handleChange('article_photo', e.target.value)}
                   name='article_photo' />
               </FormControl>
               <Button type='submit' m={4} colorScheme='blue'>צור מאמר</Button>
