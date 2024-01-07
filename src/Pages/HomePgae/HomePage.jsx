@@ -8,6 +8,7 @@ import Contact from './Contact';
 import Swiper from '../../components/Swiper/Swiper';
 import Footer from '../../components/Footer/Footer';
 import Show from '../../components/Show/Show';
+import LatestProject from './LatestProject';
 import './homestyle.css';
 function HomePage() {
 
@@ -151,7 +152,8 @@ function HomePage() {
         <Text sx={heading1} color={Tcolor} py={10} textAlign={'center'} className='Heading'>
           פרוייקט אחרון
         </Text>
-        <Box width={'90%'} bg={'rgba(0,0,0,0.9'}>1231231321</Box>
+        <LatestProject/>
+
         </Box>
 
         <Text sx={heading1} color={Tcolor} textAlign={'center'} className='Heading'>

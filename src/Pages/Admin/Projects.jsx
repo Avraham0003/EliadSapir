@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Tbody, Th, Tr, Td, Thead, Table, TableContainer, Button, useDisclosure, Modal, ModalBody, ModalContent, ModalCloseButton, ModalHeader, ModalOverlay, Box, Text, Image, Center, Link, Input, FormLabel, FormControl, Divider  } from '@chakra-ui/react'
 import axios from 'axios'
-import { BsFillPencilFill, BsEyeFill, BsFillTrashFill, BsYoutube } from "react-icons/bs";
+import { BsFillPencilFill, BsEyeFill, BsFillTrashFill, BsYoutube, BsBookmarkStarFill } from "react-icons/bs";
 import YouTube from 'react-youtube';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // Import the styles
@@ -79,6 +79,16 @@ export default function Projects() {
             console.error('Error update product:', error);
         }
     }
+
+    const make_favorite = async(id) => {
+        try {
+            await axios.get(import.meta.env.VITE_SERVER_URL +`/projects/make_favorite/${id}`);
+            location.reload();
+        } catch (error) {
+            alert(error.message);
+        }
+    }
+
 
     return (
         <>
@@ -185,7 +195,7 @@ export default function Projects() {
                                 <Td>
                                     <Image maxW={'70px'} src={item.project_photo} borderRadius='lg' />
                                 </Td>
-                                <Td>{item.project_name}</Td>
+                                <Td>{item.project_name}{item.favorite && <BsBookmarkStarFill />}</Td>
                                 <Td><Box dangerouslySetInnerHTML={{ __html: item.project_description.substring(0, 50) + '...' }} /></Td>
 
                                 <Td>{item.youtube_url}</Td>
@@ -194,6 +204,7 @@ export default function Projects() {
                                     <Button m={1} colorScheme='green' onClick={() => updateProject(item._id, item.project_name, item.project_description, item.project_photo, item.youtube_url)}><BsFillPencilFill /></Button>
                                     <Button m={1} onClick={() => showProject(item.project_name, item.project_description, item.project_photo, item.youtube_url)}><BsEyeFill /></Button>
                                     <Button m={1} colorScheme='red' onClick={() => deleteProject(item._id)}><BsFillTrashFill /></Button>
+                                    <Button m={1} colorScheme='yellow' onClick={() =>make_favorite(item._id) }><BsBookmarkStarFill /></Button>
                                 </Td>
                             </Tr>
                         ))}

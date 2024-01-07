@@ -8,6 +8,36 @@ function AuthProvider({ children }) {
   const [cookies, setCookie, removeCookie] = useCookies(["token"]);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
+  
+  useEffect(() => {
+    if (cookies.token) {
+      const authUser = async () => {
+        try {
+          const response = await axios.get(
+            "http://localhost:4000/admin/auth",
+            {
+              headers: {
+                Authorization: `Bearer ${cookies.token}`,
+              },
+            }
+          );
+          const data = await response.data;
+
+          if (!data.success) {
+            removeCookie("token");
+            console.log('not good!');
+          }
+
+          setIsAuthenticated(true);
+        } catch (error) {
+          setIsAuthenticated(false);
+        }
+      };
+
+      authUser();
+    }
+  }, [cookies]);
+
   const login = async (password) => {
     try {
       const response = await axios.post(

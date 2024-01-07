@@ -62,12 +62,14 @@ export default function Projects() {
                 borderRadius='lg'
               />
               <Stack mt='6' spacing='2'>
-                <Heading size='md'><Link href={`./project/${item._id}`}>{item.project_name}</Link></Heading>
+                <Heading size='md'><Link href={`../project/${item._id}`}>{item.project_name}</Link></Heading>
               </Stack>
             </CardBody>
             <CardFooter>
               <Button variant='solid' colorScheme='blue'>
+                <Link href={`../project/${item._id}`}>
                 פרטים נוספים
+                </Link>
               </Button>
             </CardFooter>
           </Card>

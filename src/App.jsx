@@ -3,7 +3,7 @@ import {
   RouterProvider,
   Route,
   createRoutesFromElements,
-  Navigate,
+  Navigate
 } from "react-router-dom";
 import HomePage from "./Pages/HomePgae/HomePage";
 import Products from "./Pages/Products/Products";
@@ -15,6 +15,7 @@ import PanelPage from "./Pages/Admin/PanelPage";
 import Projects from "./Pages/Projects/Projects";
 import ProjectPage from "./Pages/ProjectPage/ProjectPage";
 import AdminContext from "./Pages/Admin/AdminContext";
+import PrivateRoutes from "./utils/PrivateRoutes";
 import { useContext } from "react";
 
 function PrivateRoute({ isAuthenticated, path, element }) {
@@ -42,16 +43,13 @@ function App() {
         <Route path="/project/:id" element={<ProjectPage />} />
 
         <Route path="/admin" element={<LoginPage />} />
-        <Route
-          path="/admin/panel"
-          element={
-            <PrivateRoute
-              isAuthenticated={isAuthenticated}
-              path="/admin/panel"
-              element={<PanelPage />}
-            />
-          }
-        />
+        <Route element={<PrivateRoutes logged={isAuthenticated} />}>
+          <Route path="/admin/panel">
+            <Route index element={<PanelPage />} />
+          </Route>
+        </Route>
+      
+
       </>
     )
   );
